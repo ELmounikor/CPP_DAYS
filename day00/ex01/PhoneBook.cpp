@@ -6,7 +6,7 @@
 /*   By: mounikor <mounikor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:35:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2022/12/25 13:58:24 by mounikor         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:10:48 by mounikor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	PhoneBook::exit(void){
 	::exit(0);
 }
 
-void	print_column(std::string str)
+void	PhoneBook::print_column(std::string str)
 {
 	int	i = str.length();
 	if (i <= 10)
@@ -66,9 +66,9 @@ void	PhoneBook::display(void)
 		while (i < this->adding)
 		{
 			std::cout<< "|    " << i + 1 << "     |";
-			print_column(this->contacts[i].get_first_name());
-			print_column(this->contacts[i].get_last_name());
-			print_column(this->contacts[i].get_nickname());
+			this->print_column(this->contacts[i].get_first_name());
+			this->print_column(this->contacts[i].get_last_name());
+			this->print_column(this->contacts[i].get_nickname());
 			std::cout << "\n";
 			i++;
 		}
@@ -77,19 +77,23 @@ void	PhoneBook::display(void)
 
 void	PhoneBook::search(void)
 {
-	int	i;
+	std::string	input;
+	int			i;
 
 	this->display();
 	if (this->adding > 0)
 	{
 		std::cout << "Choose an index from 1 to " << this->adding << std::endl;
-		std::cin >> i;
-		if (std::cin.eof() || !i)
-		{
-			std::cout << "error: invalid index" << std::endl;
+		std::cin >> input;
+		if (std::cin.eof())
 			::exit(1);
+		if (input.length() == 1 && input[0] >= '0' && input[0] <= '9')
+		{
+			i = (int) input[0] - 48;
+			this->display_info(i - 1);
 		}
-		this->display_info(i - 1);
+		else
+			std::cout << "error: invalid index" << std::endl;
 	}
 }
 

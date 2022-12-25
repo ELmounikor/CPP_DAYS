@@ -6,7 +6,7 @@
 /*   By: mounikor <mounikor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:35:46 by mel-kora          #+#    #+#             */
-/*   Updated: 2022/12/25 13:04:42 by mounikor         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:08:39 by mounikor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Contact::~Contact(void){
 	// std::cout << "Contact destructed\n";
 }
 
-void	Contact::fill(void){
+void	Contact::	fill(void){
 	while (!(std::cin.eof()))
 	{
 		std::cout << "Enter the contact's fist name: ";

@@ -6,7 +6,7 @@
 /*   By: mounikor <mounikor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:35:48 by mel-kora          #+#    #+#             */
-/*   Updated: 2022/12/25 13:07:58 by mounikor         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:11:11 by mounikor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class PhoneBook {
 		void	add(void);
 		void	display(void);
 		void	display_info(int i);
+		void	print_column(std::string str);
 		void	search(void);
 		void	exit(void);
 };
