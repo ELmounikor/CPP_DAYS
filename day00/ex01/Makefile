@@ -25,7 +25,7 @@ all: 		$(NAME)
 			@echo "\033[1;95m	<< all done! >> \033[0m"
 
 $(NAME):	$(OBJS) $(INCS)
-			${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+			${CC} ${CPPFLAGS} ${OBJS} -o ${NAME}
 			@echo "\033[1;96m	----> files created \033[0m"
 
 clean:
