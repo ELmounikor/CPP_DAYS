@@ -22,7 +22,7 @@ int main(void)
 	while(1)
 	{
 		std::cout << "Mounkior Phone > ";
-		while (!(std::getline(std::cin, cmd) && cmd.length() > 1))
+		while (!(std::getline(std::cin, cmd) && cmd.length() >= 1))
 		{
 			if (std::cin.eof())
 			{
