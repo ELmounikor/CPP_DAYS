@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mounikor <mounikor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 14:30:41 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/03 16:15:02 by mounikor         ###   ########.fr       */
+/*   Updated: 2023/01/08 19:11:37 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class HumanB{
 	private :
 		std::string name;
-		Weapon      *weapon = NULL;
+		Weapon      *weapon;
 	public :
 		HumanB(std::string name);
 		HumanB(std::string name, Weapon &the_weapon);
