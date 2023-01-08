@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:35:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/08 12:25:27 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/08 12:50:30 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	PhoneBook::search(void)
 	if (this->adding > 0)
 	{
 		std::cout << "Choose an index from 1 to " << this->adding << std::endl;
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (std::cin.eof())
 			::exit(1);
 		if (input.length() == 1 && input[0] >= '0' && input[0] <= '9')
@@ -94,7 +94,6 @@ void	PhoneBook::search(void)
 		}
 		else
 			std::cout << "error: invalid index" << std::endl;
-		std::getline(std::cin, input);
 	}
 }
 
