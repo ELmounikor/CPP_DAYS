@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:35:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/08 11:52:57 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/08 12:25:27 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	PhoneBook::search(void)
 		}
 		else
 			std::cout << "error: invalid index" << std::endl;
+		std::getline(std::cin, input);
 	}
 }
 

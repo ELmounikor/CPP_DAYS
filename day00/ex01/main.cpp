@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 23:36:07 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/08 11:52:46 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/08 12:22:19 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(void)
 	while(1)
 	{
 		std::cout << "Mounkior Phone > ";
-		while (!(std::getline(std::cin, cmd) && cmd.length() >= 1))
+		while (!(std::getline(std::cin, cmd)))
 		{
 			if (std::cin.eof())
 			{
@@ -36,7 +36,7 @@ int main(void)
 			telefon.exit();
 		else if (cmd == "SEARCH")
 			telefon.search();
-		else
+		else if (cmd.length() > 0)
 			std::cout << "error : command discarded >> only ADD, SEARCH, and EXIT are valid\n";
 		std::cin.clear();
 	}
