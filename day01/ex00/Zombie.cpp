@@ -6,12 +6,11 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 22:38:50 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/08 19:05:54 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 11:09:27 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Zombie.hpp"
-# include <iostream>
 
 Zombie::Zombie(std::string name){
 	

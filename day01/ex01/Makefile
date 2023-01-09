@@ -6,15 +6,13 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/27 12:20:25 by mounikor          #+#    #+#              #
-#    Updated: 2023/01/08 19:06:02 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/09 11:09:07 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME		= Moar_brainz
-SRCS		= zombieHorde.cpp\
-				Zombie.cpp\
-				main.cpp
+SRCS		= zombieHorde.cpp  Zombie.cpp  main.cpp
 INCS		= Zombie.hpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++

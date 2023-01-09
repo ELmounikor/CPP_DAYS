@@ -6,14 +6,13 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 22:32:55 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/09 10:56:04 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 11:09:23 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_H
 # define ZOMBIE_H
 # include <iostream>
-# include <stdlib.h>
 
 class Zombie {
 	
