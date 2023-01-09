@@ -6,15 +6,12 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:18:24 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/08 19:07:36 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 11:04:38 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-#include <string.h>
-#include <unistd.h>
-#include <stdlib.h>
 
 std::string do_the_magic(std::string line, std::string to_find, std::string to_put){
 	
@@ -43,7 +40,7 @@ int main(int ac, char **av){
 		std::string line;
 		std::ifstream ifs(av[1]);
 		char *s = strdup(av[1]);
-		unlink(strcat(s,".replace"));
+		strcat(s,".replace");
 		std::ofstream ofs(s);
 		std::string to_find = av[2];
 		std::string to_put = av[3];
