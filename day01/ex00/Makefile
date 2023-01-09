@@ -6,12 +6,12 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/17 15:56:52 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/08 19:05:49 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/09 10:54:26 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= BraiiiiiiinnnzzzZ
-SRCS		= main.cpp  Zombie.cpp
+SRCS		= main.cpp  Zombie.cpp randomChump.cpp newZombie.cpp
 INCS		= Zombie.hpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
