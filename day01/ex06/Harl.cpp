@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:55:10 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/09 17:28:01 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 18:18:11 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void Harl::error( void ){
 
 void Harl::complain(std::string level){
 	
-	const char* lvl[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	std::string lvl[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int i = 0;
 	while (i < 4 && level != lvl[i])
 		i++;
