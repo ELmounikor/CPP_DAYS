@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 22:32:55 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/08 19:05:57 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:56:04 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,8 @@ class Zombie {
 		~Zombie(void);
         void announce( void );
 };
+
+void randomChump( std::string name );
+Zombie* newZombie( std::string name );
 
 #endif
