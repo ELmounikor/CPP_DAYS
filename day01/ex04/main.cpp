@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:18:24 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/09 11:04:38 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:18:14 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,15 @@ int main(int ac, char **av){
 	{
 		std::string line;
 		std::ifstream ifs(av[1]);
-		char *s = strdup(av[1]);
-		strcat(s,".replace");
-		std::ofstream ofs(s);
+		std::ofstream ofs((std::string) av[1] + ".replace");
 		std::string to_find = av[2];
 		std::string to_put = av[3];
 		if (!ifs.is_open() || !ofs.is_open())
 			std::cout << "file error\n";
-		while (std::getline(ifs, line) && line.length() > 0)
+		while (std::getline(ifs, line))
 			ofs << do_the_magic(line, to_find, to_put);
 		ifs.close();
 		ofs.close();
-		free(s);
 	}
 	else
 		std::cout << "Either too little or too much arguments >_<\n";

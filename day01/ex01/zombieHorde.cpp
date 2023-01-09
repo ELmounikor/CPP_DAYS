@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 13:56:05 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/08 19:06:21 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:07:11 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Zombie* zombieHorde( int N, std::string name ){
     
-    if (N <= 0  || name.length() <= 0)
+    if (N <= 0)
     {
         std::cout << "invalide input\n";
         return (NULL);

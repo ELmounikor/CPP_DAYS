@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/03 16:16:49 by mounikor          #+#    #+#              #
-#    Updated: 2023/01/08 19:07:40 by mel-kora         ###   ########.fr        #
+#    Created: 2023/01/09 17:17:09 by mel-kora          #+#    #+#              #
+#    Updated: 2023/01/09 17:20:44 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ RM			= @rm -rf
 all: 		$(NAME)
 			@echo "\033[1;95m	<< all done! >> \033[0m"
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) $(INCS)
 			${CC} ${CPPFLAGS} ${OBJS} -o ${NAME}
 			@echo "\033[1;96m	----> files created \033[0m"
 

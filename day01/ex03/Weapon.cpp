@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 12:47:07 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/08 19:07:24 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:59:54 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Weapon::~Weapon(void){
     std::cout << this->type + " is destroyed\n";
 }
 
-std::string Weapon::getType(void){
+const std::string &Weapon::getType(void){
     return (this->type);
 }
 

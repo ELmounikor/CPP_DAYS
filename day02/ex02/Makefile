@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/27 12:20:25 by mounikor          #+#    #+#              #
-#    Updated: 2023/01/09 16:57:18 by mel-kora         ###   ########.fr        #
+#    Created: 2023/01/09 09:44:15 by mel-kora          #+#    #+#              #
+#    Updated: 2023/01/09 09:44:50 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Unnecessary_violence
-SRCS		= main.cpp   Weapon.cpp   HumanA.cpp   HumanB.cpp
-INCS		= Weapon.hpp   HumanA.hpp   HumanB.hpp
+NAME		= 
+SRCS		= 
+INCS		= 
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM			= @rm -rf
 
 .cpp.o:

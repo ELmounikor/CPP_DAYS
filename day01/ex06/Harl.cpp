@@ -6,12 +6,11 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:55:10 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/08 19:08:04 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:28:01 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-#include <string.h>
 
 Harl::Harl()
 {
@@ -43,23 +42,23 @@ void Harl::error( void ){
 	std::cout << "This is unacceptable! I want to speak to the manager now.\n";
 }
 
-void Harl::complain(char * level){
+void Harl::complain(std::string level){
 	
 	const char* lvl[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int i = 0;
-	while (i < 4 && strcmp(level, lvl[i]))
+	while (i < 4 && level != lvl[i])
 		i++;
 	switch(i){
-			case 0:
-				this->debug();
-			case 1:
-				this->info();
-			case 2:
-				this->warning();
-			case 3:
-				this->error();
-			break;
-			default:
-				std::cout << "[ Probably complaining about insignificant problems ]\n";
+		case 0:
+			this->debug();
+		case 1:
+			this->info();
+		case 2:
+			this->warning();
+		case 3:
+			this->error();
+		break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]\n";
 	}
 }

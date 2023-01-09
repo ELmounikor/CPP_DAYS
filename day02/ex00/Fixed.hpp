@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/26 22:38:50 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/09 17:01:52 by mel-kora         ###   ########.fr       */
+/*   Created: 2023/01/09 09:48:02 by mel-kora          #+#    #+#             */
+/*   Updated: 2023/01/09 12:03:29 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Zombie.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 # include <iostream>
 
-Zombie::Zombie(void){
-	// std::cout << "zombie created\n";
-}
+class Fixed
+{
+	private:
+		int                 integer;
+		static const int    accuracy = 8;
+	public:
+		Fixed(void);
+		Fixed(Fixed &old);
+		~Fixed();
+		void operator=(const Fixed& C);
+		void setRawBits( int const raw );
+		int getRawBits( void ) const;
+};
 
-void Zombie::set_name(std::string name){
-	this->name = name;
-}
-
-Zombie::~Zombie(void){
-
-	std::cout << this->name << " has gone.\n";
-}
-
-void Zombie::announce(void){
-	
-	std::cout << this->name << " : BraiiiiiiinnnzzzZ..." << std::endl;
-}
+#endif

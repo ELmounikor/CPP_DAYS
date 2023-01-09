@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 12:20:28 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/08 19:07:32 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:59:34 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Weapon {
     public :
         Weapon(std::string type);
         ~Weapon(void);
-        std::string getType(void);
+        const std::string &getType(void);
         void setType(std::string new_type);
 };
 

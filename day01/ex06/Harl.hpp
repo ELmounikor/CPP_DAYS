@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:55:06 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/08 19:08:08 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:27:38 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Harl
 	public:
 		Harl();
 		~Harl();
-		void complain( char * level );
+		void complain( std::string level );
 };
 
 #endif
