@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:18:24 by mounikor          #+#    #+#             */
-/*   Updated: 2023/01/09 17:18:14 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/09 18:14:05 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ std::string do_the_magic(std::string line, std::string to_find, std::string to_p
 			new_line += to_put;
 		i += to_find.length();
 	}
-	new_line += "\n";
 	return (new_line);
 }
 
@@ -44,8 +43,14 @@ int main(int ac, char **av){
 		std::string to_put = av[3];
 		if (!ifs.is_open() || !ofs.is_open())
 			std::cout << "file error\n";
+		int i = 0;
 		while (std::getline(ifs, line))
+		{
+			if (i)
+				ofs << "\n";
 			ofs << do_the_magic(line, to_find, to_put);
+			i++;
+		}
 		ifs.close();
 		ofs.close();
 	}
