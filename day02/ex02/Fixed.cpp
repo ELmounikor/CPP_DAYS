@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/10 18:03:52 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:58:12 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 
 Fixed::Fixed(void)
 {
-	std::cout << "Default constructor called\n";
+	// std::cout << "Default constructor called\n";
 	this->integer = 0;
 }
 
 Fixed::Fixed(const Fixed &old)
 {
-	std::cout << "Copy constructor called\n";
+	// std::cout << "Copy constructor called\n";
 	this->integer = old.integer;
 }
 
 Fixed::Fixed(const int value)
 {
-	std::cout << "Int constructor called\n";
+	// std::cout << "Int constructor called\n";
 	int n = 1;
 	for (int i = 0; i < this->accuracy; i++)
 		n *= 2;
@@ -37,7 +37,7 @@ Fixed::Fixed(const int value)
 
 Fixed::Fixed(const float value)
 {
-	std::cout << "Float constructor called\n";
+	// std::cout << "Float constructor called\n";
 	int n = 1;
 	for (int i = 0; i < this->accuracy; i++)
 		n *= 2;
@@ -46,16 +46,87 @@ Fixed::Fixed(const float value)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called\n";
+	// std::cout << "Destructor called\n";
 }
 
 /***************** Operator overloaders *******************/
 
 void Fixed::operator=(const Fixed& C)
 {
-	std::cout << "Copy assignment operator called\n";
 	this->integer = C.integer;
 }
+
+Fixed Fixed::operator+(const Fixed& X) const
+{
+	return (Fixed(this->integer + X.integer));
+}
+
+Fixed Fixed::operator-(const Fixed& X) const
+{
+	return (Fixed(this->integer - X.integer));
+}
+
+Fixed Fixed::operator*(const Fixed& X) const
+{
+	return (Fixed(this->integer * X.integer));
+}
+
+Fixed Fixed::operator/(const Fixed& X) const
+{
+	return (Fixed(this->integer / X.integer));
+}
+
+bool Fixed::operator==(const Fixed& X) const
+{
+	return(this->integer == X.integer);
+}
+
+bool Fixed::operator!=(const Fixed& X) const
+{
+	return(this->integer != X.integer);
+}
+
+bool Fixed::operator>=(const Fixed& X) const
+{
+	return(this->integer >= X.integer);
+}
+
+bool Fixed::operator>(const Fixed& X) const
+{
+	return(this->integer > X.integer);
+}
+
+bool Fixed::operator<=(const Fixed& X) const
+{
+	return(this->integer <= X.integer);
+}
+
+Fixed Fixed::&operator++()
+{
+	
+}
+
+Fixed Fixed::operator++(int)
+{
+	
+}
+
+Fixed Fixed::&operator--()
+{
+	
+}
+
+Fixed Fixed::operator--(int)
+{
+	
+}
+
+bool Fixed::operator<(const Fixed& X) const
+{
+	return(this->integer < X.integer);
+}
+
+
 
 std::ostream &operator<<( std::ostream &output, const Fixed &X )
 {
@@ -67,13 +138,11 @@ std::ostream &operator<<( std::ostream &output, const Fixed &X )
 
 void Fixed::setRawBits( int const raw )
 {
-	std::cout << "setRawBits member function called\n";
 	this->integer = raw;
 }
 
 int Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called\n";
 	return (this->integer);
 }
 

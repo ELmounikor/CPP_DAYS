@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:48:02 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/10 16:35:57 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:57:27 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,20 @@ class Fixed
 		Fixed(const Fixed &old);
 		~Fixed();
 		void operator=(const Fixed& X);
-		// void operator+(const Fixed& X);
-		// void operator*(const Fixed& X);
-		// void operator+(const Fixed& X);
-		// void operator/(const Fixed& X);
-		// bool operator==(const Fixed& a, const Fixed& b);
-		// bool operator!=(const Fixed& a, const Fixed& b);
+		Fixed operator+(const Fixed& X) const;
+		Fixed operator-(const Fixed& X) const;
+		Fixed operator*(const Fixed& X) const;
+		Fixed operator/(const Fixed& X) const;
+		bool operator==(const Fixed& X) const;
+		bool operator!=(const Fixed& X) const;
+		bool operator>=(const Fixed& X) const;
+		bool operator>(const Fixed& X) const;
+		bool operator<=(const Fixed& X) const;
+		bool operator<(const Fixed& X) const;
+		Fixed &operator++();
+		Fixed operator++(int);
+		Fixed &operator--();
+		Fixed operator--(int);
 		void setRawBits( int const raw );
 		int getRawBits( void ) const;
 		float toFloat( void ) const;
