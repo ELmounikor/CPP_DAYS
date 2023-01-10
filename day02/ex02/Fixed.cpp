@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/10 18:58:12 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:05:17 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,24 +101,30 @@ bool Fixed::operator<=(const Fixed& X) const
 	return(this->integer <= X.integer);
 }
 
-Fixed Fixed::&operator++()
+Fixed Fixed::operator++()
 {
-	
+	this->integer++;
+	return(*this);
 }
 
 Fixed Fixed::operator++(int)
 {
-	
+	Fixed copy = *this;
+	this->integer++;
+	return(copy);
 }
 
-Fixed Fixed::&operator--()
+Fixed Fixed::operator--()
 {
-	
+	this->integer--;
+	return(*this);
 }
 
 Fixed Fixed::operator--(int)
 {
-	
+	Fixed copy = *this;
+	this->integer--;
+	return(copy);
 }
 
 bool Fixed::operator<(const Fixed& X) const
