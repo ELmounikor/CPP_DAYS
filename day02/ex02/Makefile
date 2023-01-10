@@ -6,13 +6,13 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 09:44:15 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/09 09:44:50 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/09 09:47:31 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= 
-SRCS		= 
-INCS		= 
+NAME		= fixed-point
+SRCS		= main.cpp  Fixed.cpp
+INCS		= Fixed.hpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address

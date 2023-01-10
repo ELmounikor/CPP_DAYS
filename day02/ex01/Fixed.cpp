@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/10 15:39:04 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:00:06 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,19 @@ Fixed::Fixed(const Fixed &old)
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called\n";
-	this->integer = value * 256;
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	this->integer = value * n;
 }
 
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called\n";
-	this->integer =  (int) roundf(value * 256);
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	this->integer =  (int) roundf(value * n);
 }
 
 Fixed::~Fixed()
@@ -61,12 +67,18 @@ int Fixed::getRawBits( void ) const
 
 float Fixed::toFloat( void ) const
 {
-	return((float) this->integer / 256);
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	return((float) this->integer / n);
 }
 
 int Fixed::toInt( void ) const
 {
-	return(this->integer / 256);	
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	return(this->integer / n);	
 }
 
 std::ostream &operator<<( std::ostream &output, const Fixed &X )

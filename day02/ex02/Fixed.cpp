@@ -6,22 +6,42 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/10 17:24:11 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/10 18:03:52 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+/***************** Constructors and destructor *******************/
+
 Fixed::Fixed(void)
 {
-	this->integer = 0;
 	std::cout << "Default constructor called\n";
+	this->integer = 0;
 }
 
 Fixed::Fixed(const Fixed &old)
 {
-	this->integer = old.integer;
 	std::cout << "Copy constructor called\n";
+	this->integer = old.integer;
+}
+
+Fixed::Fixed(const int value)
+{
+	std::cout << "Int constructor called\n";
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	this->integer = value * n;
+}
+
+Fixed::Fixed(const float value)
+{
+	std::cout << "Float constructor called\n";
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	this->integer =  (int) roundf(value * n);
 }
 
 Fixed::~Fixed()
@@ -29,11 +49,21 @@ Fixed::~Fixed()
 	std::cout << "Destructor called\n";
 }
 
+/***************** Operator overloaders *******************/
+
 void Fixed::operator=(const Fixed& C)
 {
 	std::cout << "Copy assignment operator called\n";
 	this->integer = C.integer;
 }
+
+std::ostream &operator<<( std::ostream &output, const Fixed &X )
+{
+	output << X.toFloat();
+	return (output);
+}
+
+/***************** Other functions *******************/
 
 void Fixed::setRawBits( int const raw )
 {
@@ -45,4 +75,20 @@ int Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called\n";
 	return (this->integer);
+}
+
+float Fixed::toFloat( void ) const
+{
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	return((float) this->integer / n);
+}
+
+int Fixed::toInt( void ) const
+{
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	return(this->integer / n);	
 }
