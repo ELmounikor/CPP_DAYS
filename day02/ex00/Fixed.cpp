@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/09 16:16:25 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:37:06 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Fixed::Fixed(void)
 	std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed(Fixed &old)
+Fixed::Fixed(const Fixed &old)
 {
 	this->integer = old.integer;
 	std::cout << "Copy constructor called\n";

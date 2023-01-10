@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:48:02 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/09 12:03:29 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:36:55 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Fixed
 		static const int    accuracy = 8;
 	public:
 		Fixed(void);
-		Fixed(Fixed &old);
+		Fixed(const Fixed &old);
 		~Fixed();
 		void operator=(const Fixed& C);
 		void setRawBits( int const raw );
