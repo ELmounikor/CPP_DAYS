@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/10 21:14:15 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:56:31 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,22 +58,31 @@ void Fixed::operator=(const Fixed& C)
 
 Fixed Fixed::operator+(const Fixed& X) const
 {
-	return (Fixed(this->integer + X.integer));
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	return (Fixed((float)(this->integer + X.integer) / n));
 }
 
 Fixed Fixed::operator-(const Fixed& X) const
 {
-	return (Fixed(this->integer - X.integer));
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	return (Fixed((float)(this->integer - X.integer) / n));
 }
 
 Fixed Fixed::operator*(const Fixed& X) const
 {
-	return (Fixed(this->integer * X.integer));
+	int n = 1;
+	for (int i = 0; i < this->accuracy; i++)
+		n *= 2;
+	return (Fixed((float) this->integer * X.integer / n / n));
 }
 
 Fixed Fixed::operator/(const Fixed& X) const
 {
-	return (Fixed(this->integer / X.integer));
+	return (Fixed((float) this->integer / X.integer));
 }
 
 bool Fixed::operator==(const Fixed& X) const
@@ -132,8 +141,6 @@ bool Fixed::operator<(const Fixed& X) const
 	return(this->integer < X.integer);
 }
 
-
-
 std::ostream &operator<<( std::ostream &output, const Fixed &X )
 {
 	output << X.toFloat();
@@ -166,4 +173,32 @@ int Fixed::toInt( void ) const
 	for (int i = 0; i < this->accuracy; i++)
 		n *= 2;
 	return(this->integer / n);	
+}
+
+Fixed &Fixed::min(Fixed &X, Fixed &Y) 
+{
+	if (Y.toFloat() < X.toFloat())
+		return (Y);
+	return (X);
+}
+
+Fixed const &Fixed::min(const Fixed &X, const Fixed &Y) 
+{
+	if (Y.toFloat() < X.toFloat())
+		return (Y);
+	return (X);
+}
+
+Fixed &Fixed::max(Fixed &X, Fixed &Y) 
+{
+	if (Y.toFloat() > X.toFloat())
+		return (Y);
+	return (X);
+}
+
+Fixed const &Fixed::max(const Fixed &X, const Fixed &Y) 
+{
+	if (Y.toFloat() > X.toFloat())
+		return (Y);
+	return (X);
 }
