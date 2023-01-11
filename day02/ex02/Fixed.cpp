@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/11 11:56:31 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:15:20 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ Fixed::~Fixed()
 	// std::cout << "Destructor called\n";
 }
 
-/***************** Operator overloaders *******************/
+/***************** Operator overloaders *******************/\
 
-void Fixed::operator=(const Fixed& C)
+Fixed &Fixed::operator=(const Fixed& C)
 {
+	(Fixed) *this;
 	this->integer = C.integer;
+	return(*this);
 }
 
 Fixed Fixed::operator+(const Fixed& X) const
@@ -182,7 +184,7 @@ Fixed &Fixed::min(Fixed &X, Fixed &Y)
 	return (X);
 }
 
-Fixed const &Fixed::min(const Fixed &X, const Fixed &Y) 
+Fixed const &Fixed::min(const Fixed &X, const Fixed &Y)
 {
 	if (Y.toFloat() < X.toFloat())
 		return (Y);
@@ -196,7 +198,7 @@ Fixed &Fixed::max(Fixed &X, Fixed &Y)
 	return (X);
 }
 
-Fixed const &Fixed::max(const Fixed &X, const Fixed &Y) 
+Fixed const &Fixed::max(const Fixed &X, const Fixed &Y)
 {
 	if (Y.toFloat() > X.toFloat())
 		return (Y);

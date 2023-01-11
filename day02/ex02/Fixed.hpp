@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:48:02 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/11 11:57:16 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:13:33 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Fixed
 		Fixed(const float value);
 		Fixed(const Fixed &old);
 		~Fixed();
-		void operator=(const Fixed& X);
+		Fixed &operator=(const Fixed& X);
 		Fixed operator+(const Fixed& X) const;
 		Fixed operator-(const Fixed& X) const;
 		Fixed operator*(const Fixed& X) const;

@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/10 18:00:06 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:47:30 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,11 @@ Fixed::~Fixed()
 	std::cout << "Destructor called\n";
 }
 
-void Fixed::operator=(const Fixed& C)
+Fixed &Fixed::operator=(const Fixed& C)
 {
 	std::cout << "Copy assignment operator called\n";
 	this->integer = C.integer;
+	return(*this);
 }
 
 void Fixed::setRawBits( int const raw )
