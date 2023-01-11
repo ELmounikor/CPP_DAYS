@@ -6,7 +6,7 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 09:44:15 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/11 15:45:26 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/11 18:34:45 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all: 		$(NAME)
 			@echo "\033[1;95m	<< all done! >> \033[0m"
 
 $(NAME):	$(OBJS) $(INCS)
-			${CC} ${CPPFLAGS} ${OBJS}
+			${CC} ${CPPFLAGS} ${OBJS} -o $(NAME)
 			@echo "\033[1;96m	----> files created \033[0m"
 
 clean:
