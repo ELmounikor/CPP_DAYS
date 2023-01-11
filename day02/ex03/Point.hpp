@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:23:19 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/11 12:41:33 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:32:48 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ public:
 	Point(float const x, float const y);
 	Point(const Point &p);
 	~Point();
-	void operator=(const Point &X);
+	Fixed const getX(void);
+	Fixed const getY(void);
+	Point &operator=(const Point &p);
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif
