@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/12 10:36:49 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/12 17:16:12 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ Fixed::~Fixed()
 
 Fixed &Fixed::operator=(const Fixed& C)
 {
-	(Fixed) *this;
-	this->integer = C.integer;
+	if (this != &C)
+		this->integer = C.integer;
 	return(*this);
 }
 

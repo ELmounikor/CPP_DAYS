@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/12 10:36:29 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/12 17:10:07 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(const Fixed &old)
 {
 	// std::cout << "Copy constructor called\n";
-	this->integer = old.integer;
+	*this = old.integer;
 }
 
 Fixed::Fixed(const int value)
@@ -53,8 +53,8 @@ Fixed::~Fixed()
 
 Fixed &Fixed::operator=(const Fixed& C)
 {
-	(Fixed) *this;
-	this->integer = C.integer;
+	if (this != &C)
+		this->integer = C.integer;
 	return(*this);
 }
 

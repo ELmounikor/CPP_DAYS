@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:23:10 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/12 08:57:23 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/12 17:17:58 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ Point::~Point()
 
 Point& Point::operator=(const Point &p)
 {
-	(Fixed) this->x = p.x;
-	(Fixed) this->y = p.y;
+	if (this != &p)
+	{
+		(Fixed) this->x = p.x;
+		(Fixed) this->y = p.y;
+	}
 	return(*this);
 }
 
