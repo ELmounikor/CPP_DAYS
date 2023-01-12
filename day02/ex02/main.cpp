@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:59:42 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/12 10:17:22 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/12 10:32:08 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ int main( void )
     // std::cout << "a=" << a <<std::endl;
     // std::cout << "b=" << b <<std::endl;
     // std::cout << "c=" << c << std::endl;
+    if (a < b)
+        std::cout << a << " < " << b <<std::endl;
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/11 15:15:20 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/12 10:36:29 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,28 +179,28 @@ int Fixed::toInt( void ) const
 
 Fixed &Fixed::min(Fixed &X, Fixed &Y) 
 {
-	if (Y.toFloat() < X.toFloat())
+	if (Y < X)
 		return (Y);
 	return (X);
 }
 
 Fixed const &Fixed::min(const Fixed &X, const Fixed &Y)
 {
-	if (Y.toFloat() < X.toFloat())
+	if (Y < X)
 		return (Y);
 	return (X);
 }
 
 Fixed &Fixed::max(Fixed &X, Fixed &Y) 
 {
-	if (Y.toFloat() > X.toFloat())
+	if (Y > X)
 		return (Y);
 	return (X);
 }
 
 Fixed const &Fixed::max(const Fixed &X, const Fixed &Y)
 {
-	if (Y.toFloat() > X.toFloat())
+	if (Y > X)
 		return (Y);
 	return (X);
 }
