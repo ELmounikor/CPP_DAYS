@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:10 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/12 19:06:10 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:40:23 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ ClapTrap::ClapTrap(std::string name)
 	hit_pts = 10;
 	energy_pts = 10;
 	attack_dmg = 0;
+	std::cout << "ClapTrap " << this->name << " is ready\n";
 }
 
 ClapTrap::ClapTrap(ClapTrap const &old)
@@ -26,10 +27,12 @@ ClapTrap::ClapTrap(ClapTrap const &old)
 	hit_pts = old.hit_pts;
 	energy_pts = old.energy_pts;
 	attack_dmg = old.attack_dmg;
+	std::cout << "ClapTrap " << this->name << " is ready\n";
 }
 
 ClapTrap::~ClapTrap()
 {
+	std::cout << "ClapTrap " << this->name << " has gone\n";
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &old)
@@ -59,11 +62,13 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	unsigned int i = 0;
 	if (this->hit_pts > 0)
 	{
-		this->hit_pts -= amount;
+		while (this->hit_pts > 0 && i++ < amount)
+			this->hit_pts--;
 		if (this->hit_pts)
-			std::cout<< "ClapTrap " << this->name << " has lost " << amount << " hit points\n";
+			std::cout<< "ClapTrap " << this->name << " has lost " << i << " hit points\n";
 		else
 			std::cout<< "ClapTrap " << this->name << " is dead now\n";
 	}
