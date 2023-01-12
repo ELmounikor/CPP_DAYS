@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:59:42 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/11 17:17:10 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/12 08:59:04 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 int main( void ) 
 {
-    Point p;
-    Point z(42.0f, 1.5f);
-    
-    std::cout << "px=" << p.getX() << " py=" << p.getY() << std::endl;
-    std::cout << "zx=" << z.getX() << " zy=" << z.getY() << std::endl;
+    Point a;
+    Point b(2, 5.5f);
+    Point c(4, 0);
+    Point p(3.5, 3);
+    Point op(2, 2);
+
+    std::cout << "triangle abc area =" << Point::area(a, b, c) << "\n" << bsp(a, b, c, p) << std::endl;
 
     return 0;
 }

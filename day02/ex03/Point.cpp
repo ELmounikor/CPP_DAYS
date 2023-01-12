@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:23:10 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/11 17:32:33 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/12 08:57:23 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,20 @@ Point& Point::operator=(const Point &p)
 	return(*this);
 }
 
-Fixed const Point::getX(void)
+float Point::area(Point const a, Point const b, Point const c)
 {
-	return(this->x);
+	Fixed const &A =  Fixed(0.5f) * (a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y));
+	if (A.toFloat() >= 0)
+		return(A.toFloat());
+	return((A * Fixed(-1)).toFloat());
 }
 
-Fixed const Point::getY(void)
-{
-	return(this->y);
-}
+// Fixed const Point::getX(void)
+// {
+// 	return(this->x);
+// }
+
+// Fixed const Point::getY(void)
+// {
+// 	return(this->y);
+// }
