@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:35 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/13 17:49:16 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:01:31 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class ClapTrap
 {
-	protected:
+	private:
 		std::string name;
 		int         hit_pts;
 		int         energy_pts;
