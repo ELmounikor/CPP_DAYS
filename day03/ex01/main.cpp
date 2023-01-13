@@ -6,11 +6,11 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:15 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/13 10:19:48 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:22:10 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 void attaking(ClapTrap &p1, ClapTrap &p2)
 {
@@ -22,18 +22,21 @@ void attaking(ClapTrap &p1, ClapTrap &p2)
 
 int main()
 {
-	ClapTrap p1("khona");
-	ClapTrap p2("khtna");
-
-	attaking(p1, p2);
+	ScavTrap p1("khona1");
+	ScavTrap p2("khtna1");
+	ClapTrap p3(p2);
+	
+	p3.setName("khtna2");
+	attaking(p1, p3);
 	p1.setAttack_dmg(5);
-	p2.setAttack_dmg(7);
+	p3.setAttack_dmg(7);
 	for (int i = 0; i < 5; i++)
 	{
-		attaking(p1, p2);
-		p2.beRepaired(5);
-		attaking(p2, p1);
+		attaking(p1, p3);
+		p3.beRepaired(5);
+		attaking(p3, p1);
 		p1.beRepaired(7);
 	}
+	p1.guardGate();
 	return 0;
 }

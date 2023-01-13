@@ -6,7 +6,7 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 09:44:15 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/11 18:34:45 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/13 12:04:46 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,13 @@ CC			= @c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM			= @rm -rf
 
-.cpp.o:
+.cpp.o:		$(INCS)
 			$(CC) $(CPPFLAGS) -c $< -o $@
 
 all: 		$(NAME)
 			@echo "\033[1;95m	<< all done! >> \033[0m"
 
-$(NAME):	$(OBJS) $(INCS)
+$(NAME):	$(OBJS)
 			${CC} ${CPPFLAGS} ${OBJS} -o $(NAME)
 			@echo "\033[1;96m	----> files created \033[0m"
 
