@@ -6,11 +6,20 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/11 15:47:30 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:35:59 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+int	two_power_of_(int accuracy)
+{
+	//calulating 2 power of 8
+	int n = 1;
+	for (int i = 0; i < accuracy; i++)
+		n *= 2;
+	return (n);
+}
 
 Fixed::Fixed(void)
 {
@@ -27,19 +36,14 @@ Fixed::Fixed(const Fixed &old)
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called\n";
-	int n = 1;
-	for (int i = 0; i < this->accuracy; i++)
-		n *= 2;
-	this->integer = value * n;
+	this->integer = value * two_power_of_(this->accuracy);
 }
 
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called\n";
-	int n = 1;
-	for (int i = 0; i < this->accuracy; i++)
-		n *= 2;
-	this->integer =  (int) roundf(value * n);
+	//calulating 2 power of 8
+	this->integer =  (int) roundf(value * two_power_of_(this->accuracy));
 }
 
 Fixed::~Fixed()
@@ -68,18 +72,14 @@ int Fixed::getRawBits( void ) const
 
 float Fixed::toFloat( void ) const
 {
-	int n = 1;
-	for (int i = 0; i < this->accuracy; i++)
-		n *= 2;
-	return((float) this->integer / n);
+	//calulating 2 power of 8
+	return((float) this->integer / two_power_of_(this->accuracy));
 }
 
 int Fixed::toInt( void ) const
 {
-	int n = 1;
-	for (int i = 0; i < this->accuracy; i++)
-		n *= 2;
-	return(this->integer / n);	
+	//calulating 2 power of 8
+	return(this->integer / two_power_of_(this->accuracy));	
 }
 
 std::ostream &operator<<( std::ostream &output, const Fixed &X )
