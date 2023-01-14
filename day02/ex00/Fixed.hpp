@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:48:02 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/10 17:55:15 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/14 13:38:10 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Fixed
 		Fixed(void);
 		Fixed(const Fixed &old);
 		~Fixed();
-		void operator=(const Fixed& C);
+		Fixed &operator=(const Fixed& C);
 		void setRawBits( int const raw );
 		int getRawBits( void ) const;
 };
