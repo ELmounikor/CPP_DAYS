@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:59:42 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/14 15:42:59 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:54:12 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main( void )
     Point op(2, 2);
 
     std::cout << "triangle abc area is " << Point::area(a, b, c) << "\nIs that point inside the triangle abc?\n";
-    if(bsp(a, b, c, op))
+    if(bsp(a, b, c, c))
         std::cout << "Yes\n";
     else
         std::cout << "No\n";

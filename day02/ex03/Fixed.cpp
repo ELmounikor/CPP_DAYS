@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 09:47:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/14 16:41:27 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:49:50 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	two_power_of_(int accuracy)
 		n *= 2;
 	return (n);
 }
+
 /***************** Constructors and destructor *******************/
 
 Fixed::Fixed(void)
@@ -31,7 +32,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(const Fixed &old)
 {
 	// std::cout << "Copy constructor called\n";
-	*this = old.integer;
+	this->integer = old.integer;
 }
 
 Fixed::Fixed(const int value)
