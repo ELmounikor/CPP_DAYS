@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:15 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/14 21:08:53 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:38:53 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void attaking(ClapTrap &p1, ClapTrap &p2)
 int main()
 {
 	DiamondTrap p1("khona1");
-	exit(0);
 	// FragTrap p2("khtna1");
 	// ClapTrap p3(p2);
 	

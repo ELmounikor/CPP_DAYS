@@ -6,13 +6,13 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 09:44:15 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/13 13:19:18 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/14 21:49:59 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= ClapTrap
-SRCS		= main.cpp  ClapTrap.cpp  ScavTrap.cpp  FragTrap.cpp
-INCS		= ClapTrap.hpp   ScavTrap.hpp FragTrap.hpp
+SRCS		= main.cpp  ClapTrap.cpp  ScavTrap.cpp  FragTrap.cpp  DiamondTrap.cpp
+INCS		= ClapTrap.hpp  ScavTrap.hpp  FragTrap.hpp  DiamondTrap.hpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
