@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:15 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/13 12:42:32 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/14 20:44:01 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int main()
 	ScavTrap p1("khona1");
 	ScavTrap p2("khtna1");
 	ClapTrap p3(p2);
-	
 	p3.setName("khtna2");
 	for (int i = 0; i < 5; i++)
 	{

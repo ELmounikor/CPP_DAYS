@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:15 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/13 13:31:17 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/14 20:59:49 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ int main()
 {
 	FragTrap p1("khona1");
 	FragTrap p2("khtna1");
-	ClapTrap p3(p2);
 	
-	p3.setName("khtna2");
 	for (int i = 0; i < 5; i++)
 	{
 		attaking(p1, p2);
@@ -35,6 +33,5 @@ int main()
 		p1.beRepaired(15);
 	}
 	p1.highFivesGuys();
-	p2.highFivesGuys();
 	return 0;
 }

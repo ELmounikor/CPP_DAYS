@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:25:00 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/13 16:38:31 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:26:26 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 # define SCAVTRAP_HPP
 # include "ClapTrap.hpp"
 
-class  ScavTrap : virtual public ClapTrap
+class  ScavTrap : public ClapTrap
 {
     public:
         ScavTrap(std::string name);
         ScavTrap(ScavTrap const &old);
-        ~ ScavTrap();
+        virtual ~ ScavTrap();
+		void attack(const std::string& target);
         void guardGate();
 };
 

@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:20:04 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/13 16:38:29 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/14 20:57:13 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class  FragTrap : virtual public ClapTrap
     public:
         FragTrap(std::string name);
         FragTrap(FragTrap const &old);
-        ~ FragTrap();
+        virtual ~ FragTrap();
         void highFivesGuys();
 };
 

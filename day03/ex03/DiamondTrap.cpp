@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:59:42 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/13 17:39:48 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:29:19 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
-	std::cout << "DiamondTrap " << this->getName() << " is ready\n";
+	std::cout << "DiamondTrap " << ClapTrap::getName() << " is ready\n";
+	std::cout << "DiamondTrap " << ScavTrap::getAttack_dmg() << " is ready\n";
+	std::cout << "DiamondTrap " << FragTrap::getAttack_dmg() << " is ready\n";
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &old): ClapTrap(old), ScavTrap(old), FragTrap(old)
