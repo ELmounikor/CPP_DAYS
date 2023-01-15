@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:25:00 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/14 21:32:08 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:31:39 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class  ScavTrap : virtual public ClapTrap
         ScavTrap(std::string name);
         ScavTrap(ScavTrap const &old);
         virtual ~ ScavTrap();
+		ScavTrap &operator=(const ScavTrap &old);
 		void attack(const std::string& target);
         void guardGate();
 };

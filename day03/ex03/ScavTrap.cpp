@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:24:52 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 11:39:24 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:26:47 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,18 @@ ScavTrap::ScavTrap(ScavTrap const &old): ClapTrap(old)
 ScavTrap::~ ScavTrap()
 {
 	std::cout << "ScavTrap " << this->getName() << " has gone\n";
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &old)
+{
+	if (this != &old)
+	{
+		name = old.name;
+		hit_pts = old.hit_pts;
+		energy_pts = old.energy_pts;
+		attack_dmg = old.attack_dmg;
+	}
+	return (*this);
 }
 
 void ScavTrap::attack(const std::string& target)
