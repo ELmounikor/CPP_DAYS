@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:10 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 15:47:02 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 17:25:46 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@
 ClapTrap::ClapTrap()
 {
 	this->name = "";
-	hit_pts = 10;
-	energy_pts = 10;
-	attack_dmg = 0;
+	this->hit_pts = 10;
+	this->energy_pts = 10;
+	this->attack_dmg = 0;
 	std::cout << "\033[1;96mClapTrap " << this->name << " is ready\n\033[0m";
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
 	this->name = name;
-	hit_pts = 10;
-	energy_pts = 10;
-	attack_dmg = 0;
+	this->hit_pts = 10;
+	this->energy_pts = 10;
+	this->attack_dmg = 0;
 	std::cout << "\033[1;96mClapTrap " << this->name << " is ready\n\033[0m";
 }
 
 ClapTrap::ClapTrap(ClapTrap const &old)
 {
-	name = old.name;
-	hit_pts = old.hit_pts;
-	energy_pts = old.energy_pts;
-	attack_dmg = old.attack_dmg;
+	this->name = old.name;
+	this->hit_pts = old.hit_pts;
+	this->energy_pts = old.energy_pts;
+	this->attack_dmg = old.attack_dmg;
 	std::cout << "\033[1;96mClapTrap " << this->name << " is ready\n\033[0m";
 }
 
@@ -50,10 +50,10 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &old)
 {
 	if (this != &old)
 	{
-		name = old.name;
-		hit_pts = old.hit_pts;
-		energy_pts = old.energy_pts;
-		attack_dmg = old.attack_dmg;
+		this->name = old.name;
+		this->hit_pts = old.hit_pts;
+		this->energy_pts = old.energy_pts;
+		this->attack_dmg = old.attack_dmg;
 	}
 	return (*this);
 }
