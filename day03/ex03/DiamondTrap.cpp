@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:59:42 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 18:00:04 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 18:24:03 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &old)
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << "\033[0;97mDiamondTrap name: " << this->name << "  has ClapTrap name: " << ClapTrap::name << "\n\033[0m";
+	std::cout << "\033[0;97mDiamondTrap name: " << this->name << " has ClapTrap name: " << ClapTrap::name << "\n\033[0m";
 }
