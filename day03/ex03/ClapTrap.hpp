@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:35 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 15:03:15 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 17:56:50 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class ClapTrap
 		void setHit_pts(int amount);
 		void setEnergy_pts(int amount);
 		void setAttack_dmg(int amount);
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };

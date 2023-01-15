@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:59:42 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 14:17:03 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 18:00:04 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ DiamondTrap::DiamondTrap(): ClapTrap("_clap_name")
 	this->hit_pts = FragTrap::hit_pts;
 	this->energy_pts = ScavTrap::energy_pts;
 	this->attack_dmg = FragTrap::attack_dmg;
+	std::cout << "DiamondTrap " << this->name << ' ' << this->hit_pts << ' ' << this->energy_pts << ' ' << this->attack_dmg << " is ready\n";
 }
 
 DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name")
@@ -26,7 +27,7 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name")
 	this->hit_pts = FragTrap::hit_pts;
 	this->energy_pts = ScavTrap::energy_pts;
 	this->attack_dmg = FragTrap::attack_dmg;
-	std::cout << "DiamondTrap " << this->name << ' ' << this->hit_pts <<  this->energy_pts << ' ' << this->attack_dmg << " is ready\n";
+	std::cout << "DiamondTrap " << this->name << ' ' << this->hit_pts << ' ' << this->energy_pts << ' ' << this->attack_dmg << " is ready\n";
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &old): ClapTrap(old), ScavTrap(old), FragTrap(old)
@@ -53,5 +54,5 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &old)
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << "\033[0;97mDiamondTrap name: " << name << "  has ClapTrap name: " << ClapTrap::name << "\n\033[0m";
+	std::cout << "\033[0;97mDiamondTrap name: " << this->name << "  has ClapTrap name: " << ClapTrap::name << "\n\033[0m";
 }
