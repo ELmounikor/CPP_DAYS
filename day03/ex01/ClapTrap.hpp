@@ -6,22 +6,23 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:35 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/14 21:22:47 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:03:15 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef CLAPTRAP_H
+# define CLAPTRAP_H
 # include <iostream>
 
 class ClapTrap
 {
 	protected:
 		std::string name;
-		int         hit_pts;
-		int         energy_pts;
-		int         attack_dmg;
+		unsigned int hit_pts;
+		unsigned int energy_pts;
+		unsigned int attack_dmg;
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const &old);
 		ClapTrap &operator=(const ClapTrap &old);
@@ -34,7 +35,7 @@ class ClapTrap
 		void setHit_pts(int amount);
 		void setEnergy_pts(int amount);
 		void setAttack_dmg(int amount);
-		virtual void attack(const std::string& target);
+		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };

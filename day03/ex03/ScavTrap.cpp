@@ -6,11 +6,19 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:24:52 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 12:26:47 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:07:31 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap(): ClapTrap()
+{
+	this->setHit_pts(100);
+	this->setEnergy_pts(50);
+	this->setAttack_dmg(20);
+	std::cout << "ScavTrap " << this->getName() << " is ready\n";
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
@@ -47,7 +55,7 @@ void ScavTrap::attack(const std::string& target)
 	if (this->energy_pts && this->hit_pts > 0)
 	{
 		this->energy_pts--;
-		std::cout << "\033[1;93mScavTrap " << this->name << " attacks " << target << " causing " << this->attack_dmg << " points of damage!\n\033[0m";
+		std::cout << "\033[0;93mScavTrap " << this->name << " attacks " << target << " causing " << this->attack_dmg << " points of damage!\n\033[0m";
 	}
 	else if (!this->energy_pts)
 		std::cout << "\033[1;97mScavTrap " << this->name << " has no energy left to attack\n\033[0m";

@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:59:45 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 12:31:08 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:32:30 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class  DiamondTrap: public ScavTrap, public FragTrap
 	private:
 		std::string name;
 	public:
+		DiamondTrap();
 		DiamondTrap(std::string name);
 		DiamondTrap( DiamondTrap const &old);
 		~DiamondTrap();

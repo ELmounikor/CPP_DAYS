@@ -6,13 +6,22 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:10 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/14 19:20:55 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:47:02 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 /*******************  the orthodox canonical class form **********************/
+
+ClapTrap::ClapTrap()
+{
+	this->name = "";
+	hit_pts = 10;
+	energy_pts = 10;
+	attack_dmg = 0;
+	std::cout << "\033[1;96mClapTrap " << this->name << " is ready\n\033[0m";
+}
 
 ClapTrap::ClapTrap(std::string name)
 {
@@ -104,7 +113,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->hit_pts > 0)
 	{
-		this->hit_pts-=amount;
+		if (amount < this->hit_pts)
+			this->hit_pts-=amount;
+		else
+			this->hit_pts = 0;
 		std::cout<< "\033[0;91mClapTrap " << this->name << " has lost " << amount << " hit points\n\033[0m";
 		if (this->hit_pts <= 0)
 			std::cout<< "\033[0;91mClapTrap " << this->name << " is dead now\n\033[0m";

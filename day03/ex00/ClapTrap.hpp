@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:35 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/12 20:37:30 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:00:39 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ class ClapTrap
 {
 	private:
 		std::string name;
-		int         hit_pts;
-		int         energy_pts;
-		int         attack_dmg;
+		unsigned int hit_pts;
+		unsigned int energy_pts;
+		unsigned int attack_dmg;
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const &old);
 		ClapTrap &operator=(const ClapTrap &old);

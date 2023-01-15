@@ -6,19 +6,27 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:59:42 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 12:33:42 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:17:03 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(): ClapTrap("_clap_name")
+{
+	this->name = "";
+	this->hit_pts = FragTrap::hit_pts;
+	this->energy_pts = ScavTrap::energy_pts;
+	this->attack_dmg = FragTrap::attack_dmg;
+}
+
+DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name")
 {
 	this->name = name;
-	this->hit_pts = 100;
-	this->energy_pts = 50;
-	this->attack_dmg = 30;
-	std::cout << "DiamondTrap " << this->name << " is ready\n";
+	this->hit_pts = FragTrap::hit_pts;
+	this->energy_pts = ScavTrap::energy_pts;
+	this->attack_dmg = FragTrap::attack_dmg;
+	std::cout << "DiamondTrap " << this->name << ' ' << this->hit_pts <<  this->energy_pts << ' ' << this->attack_dmg << " is ready\n";
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &old): ClapTrap(old), ScavTrap(old), FragTrap(old)

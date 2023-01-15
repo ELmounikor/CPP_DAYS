@@ -6,17 +6,25 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:19:55 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 12:26:34 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:10:32 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(): ClapTrap()
 {
-	this->setHit_pts(100);
-	this->setEnergy_pts(100);
-	this->setAttack_dmg(30);
+	this->hit_pts = 100;
+	this->energy_pts = 100;
+	this->attack_dmg = 30;
+	std::cout << "FragTrap " << this->getName() << " is ready\n";
+}
+
+FragTrap::FragTrap(std::string name): ClapTrap(name)
+{
+	this->hit_pts = 100;
+	this->energy_pts = 100;
+	this->attack_dmg = 30;
 	std::cout << "FragTrap " << this->getName() << " is ready\n";
 }
 
@@ -44,5 +52,5 @@ FragTrap &FragTrap::operator=(const FragTrap &old)
 
 void FragTrap::highFivesGuys()
 {
-	std::cout << "\033[0;92mFragTrap " << this->getName() << ": positive high fives request ^_^\n\033[0m";
+	std::cout << "\033[0;92mFragTrap " << this->getName() << ": 🙋\n\033[0m";
 }

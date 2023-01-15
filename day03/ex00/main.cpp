@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:21:15 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/13 10:19:48 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:48:10 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
 	attaking(p1, p2);
 	p1.setAttack_dmg(5);
 	p2.setAttack_dmg(7);
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		attaking(p1, p2);
 		p2.beRepaired(5);

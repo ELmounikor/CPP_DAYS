@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:25:00 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 12:29:58 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:00:49 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 class  ScavTrap : public ClapTrap
 {
     public:
+        ScavTrap();
         ScavTrap(std::string name);
         ScavTrap(ScavTrap const &old);
         ~ ScavTrap();

@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:20:04 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/15 12:31:27 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:55:51 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 
 class  FragTrap : virtual public ClapTrap
 {
+    protected:
+        unsigned int energy_pts;
     public:
+        FragTrap();
         FragTrap(std::string name);
         FragTrap(FragTrap const &old);
         virtual ~ FragTrap();
