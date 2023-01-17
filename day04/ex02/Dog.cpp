@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 12:43:47 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 21:58:25 by mel-kora         ###   ########.fr       */
+/*   Created: 2023/01/17 13:27:37 by mel-kora          #+#    #+#             */
+/*   Updated: 2023/01/17 17:39:10 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
 
-Animal::Animal()
+Dog::Dog()
 {
-	this->type = "Unknown";
-	std::cout << "\033[0;91mAnimal has been created\n\033[0m";
+    this->type = "Dog";
+	this->brain = new Brain();
+	std::cout << "\033[0;93mDog has been created\n\033[0m";
 }
 
-Animal::Animal(Animal const &old)
+Dog::Dog(Dog const &old)
 {
 	this->type = old.type;
-	std::cout << "\033[0;91mAnimal has been created\n\033[0m";
+	this->brain = old.brain;
+	std::cout << "\033[0;93mDog has been created\n\033[0m";
 }
 
-Animal &Animal::operator=(const Animal &old)
+Dog &Dog::operator=(const Dog &old)
 {
 	if (this != &old)
+	{
 		this->type = old.type;
+		this->brain = old.brain;
+	}
     return (*this);
 }
 
-Animal::~Animal()
+Dog::~Dog()
 {
-	std::cout << "\033[0;31mAnimal has been destroyed\n\033[0m";
+	delete this->brain;
+	std::cout << "\033[0;33mDog has been destroyed\n\033[0m";
 }
 
-std::string Animal::getType() const
+void Dog::makeSound() const
 {
-	return(type);
-}
-
-void Animal::makeSound(void) const
-{
-	std::cout << "\033[1;91m*Unknown sound*\n\033[0m";
+	std::cout << "\033[1;93mWoaf!\n\033[0m";
 }

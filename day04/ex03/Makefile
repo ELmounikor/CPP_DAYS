@@ -6,13 +6,13 @@
 #    By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 11:22:34 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/17 19:14:10 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/17 18:48:28 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Farm
-SRCS		= main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp WrongCat.cpp WrongAnimal.cpp
-INCS		= Animal.hpp Cat.hpp Dog.hpp Brain.hpp WrongCat.hpp WrongAnimal.hpp
+NAME		= BloodyWar
+SRCS		= main.cpp AMateria.hpp
+INCS		= AMateria.hpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
