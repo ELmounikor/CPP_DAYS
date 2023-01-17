@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:19:55 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/16 11:19:50 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:18:41 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 FragTrap::FragTrap(): ClapTrap()
 {
 	this->hit_pts = 100;
-	if (this->energy_pts == 10)
+	// if (this->energy_pts == 10)
 		this->energy_pts = 100;
 	this->attack_dmg = 30;
 	std::cout << "FragTrap " << this->getName() << " is ready\n";
@@ -24,7 +24,7 @@ FragTrap::FragTrap(): ClapTrap()
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	this->hit_pts = 100;
-	if (this->energy_pts == 10)
+	// if (this->energy_pts == 10)
 		this->energy_pts = 100;
 	this->attack_dmg = 30;
 	std::cout << "FragTrap " << this->getName() << " is ready\n";

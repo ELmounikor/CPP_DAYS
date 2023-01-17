@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:43:47 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 16:42:39 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/17 19:12:11 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ std::string Animal::getType() const
 
 void Animal::makeSound(void) const
 {
-	std::cout << "\033[1;91mUnknown sound\n\033[0m";
+	std::cout << "\033[1;91m*Unknown sound*\n\033[0m";
 }

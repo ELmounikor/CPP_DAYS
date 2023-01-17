@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 10:25:00 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/16 11:21:05 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/17 18:18:31 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 class  ScavTrap : virtual public ClapTrap
 {
+    protected:
+        unsigned int energy_pts;
     public:
         ScavTrap();
         ScavTrap(std::string name);
