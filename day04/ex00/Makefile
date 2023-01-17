@@ -6,11 +6,11 @@
 #    By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 11:22:34 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/17 12:42:53 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/17 15:35:30 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= a.out
+NAME		= Farm
 SRCS		= main.cpp Animal.cpp Cat.cpp Dog.cpp
 INCS		= Animal.hpp Cat.hpp Dog.hpp
 OBJS		= ${SRCS:.cpp=.o}

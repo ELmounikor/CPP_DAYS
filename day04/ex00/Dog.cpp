@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:27:37 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 15:22:27 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:43:32 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 Dog::Dog()
 {
     this->type = "Dog";
-	std::cout << "Dog has been created\n";
+	std::cout << "\033[0;93mDog has been created\n\033[0m";
 }
 
 Dog::Dog(Dog const &old)
 {
 	this->type = old.type;
-	std::cout << "Dog has been created\n";
+	std::cout << "\033[0;93mDog has been created\n\033[0m";
 }
 
 Dog &Dog::operator=(const Dog &old)
@@ -33,10 +33,10 @@ Dog &Dog::operator=(const Dog &old)
 
 Dog::~Dog()
 {
-	std::cout << "Dog has been destroyed\n";
+	std::cout << "\033[0;33mDog has been destroyed\n\033[0m";
 }
 
 void Dog::makeSound() const
 {
-	std::cout << "woaf!\n";
+	std::cout << "\033[1;93mWoaf!\n\033[0m";
 }

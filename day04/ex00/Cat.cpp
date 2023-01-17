@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:25:40 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 15:22:22 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:43:12 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 Cat::Cat()
 {
     this->type = "Cat";
-	std::cout << "Cat has been created\n";
+	std::cout << "\033[0;92mCat has been created\n\033[0m";
 }
 
 Cat::Cat(Cat const &old)
 {
 	this->type = old.type;
-	std::cout << "Cat has been created\n";
+	std::cout << "\033[0;92mCat has been created\n\033[0m";
 }
 
 Cat &Cat::operator=(const Cat &old)
@@ -33,10 +33,10 @@ Cat &Cat::operator=(const Cat &old)
 
 Cat::~Cat()
 {
-	std::cout << "Cat has been destroyed\n";
+	std::cout << "\033[0;32mCat has been destroyed\n\033[0m";
 }
 
 void Cat::makeSound() const
 {
-	std::cout << "myaaaw!\n";
+	std::cout << "\033[1;92mMyaw!\n\033[0m";
 }

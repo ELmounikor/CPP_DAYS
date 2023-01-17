@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:09:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 14:34:44 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:28:28 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int main()
     std::cout << i->getType() << " " << std::endl;
     i->makeSound(); //will output the cat sound!
     j->makeSound(); //will output the dog sound!
-    meta->makeSound();//will output ...
+    meta->makeSound();//will output Unknown sound
+    delete i;
+    delete j;
+    delete meta;
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 12:43:47 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 15:14:02 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:42:39 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 Animal::Animal()
 {
-	std::cout << "Animal has been created\n";
+	this->type = "Unknown";
+	std::cout << "\033[0;91mAnimal has been created\n\033[0m";
 }
 
 Animal::Animal(Animal const &old)
 {
 	this->type = old.type;
-	std::cout << "Animal has been created\n";
+	std::cout << "\033[0;91mAnimal has been created\n\033[0m";
 }
 
 Animal &Animal::operator=(const Animal &old)
@@ -32,7 +33,7 @@ Animal &Animal::operator=(const Animal &old)
 
 Animal::~Animal()
 {
-	std::cout << "Animal has been destroyed\n";
+	std::cout << "\033[0;31mAnimal has been destroyed\n\033[0m";
 }
 
 std::string Animal::getType() const
@@ -42,5 +43,5 @@ std::string Animal::getType() const
 
 void Animal::makeSound(void) const
 {
-	std::cout << "...\n";
+	std::cout << "\033[1;91mUnknown sound\n\033[0m";
 }
