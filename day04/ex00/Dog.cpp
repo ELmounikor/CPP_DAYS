@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:27:37 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 13:31:10 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:22:27 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Dog::~Dog()
 	std::cout << "Dog has been destroyed\n";
 }
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
 	std::cout << "woaf!\n";
 }

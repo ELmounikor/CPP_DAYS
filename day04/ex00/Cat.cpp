@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:25:40 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 13:30:43 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:22:22 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Cat::~Cat()
 	std::cout << "Cat has been destroyed\n";
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
 	std::cout << "myaaaw!\n";
 }

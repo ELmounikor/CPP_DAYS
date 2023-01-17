@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:21:09 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 13:30:06 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:22:15 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat : public Animal
 		Cat(Cat const &old);
 		Cat &operator=(const Cat &old);
 		virtual ~Cat();
-		void makeSound();
+		void makeSound() const;
 };
 
 #endif
