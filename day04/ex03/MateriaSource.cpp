@@ -1,29 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 11:53:19 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 13:43:19 by mel-kora         ###   ########.fr       */
+/*   Created: 2023/01/18 15:29:32 by mel-kora          #+#    #+#             */
+/*   Updated: 2023/01/18 15:37:30 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef CURE
-# define CURE
-# include "AMateria.hpp"
+# include "MateriaSource.hpp"
 
-class Cure: public AMateria
-{
-    public:
-        Cure();
-        Cure(std::string const & type);
-        Cure(Cure const &old);
-        Cure &operator=(const Cure &old);
-        ~Cure();
-        AMateria* clone() const;
-};
-
-#endif
