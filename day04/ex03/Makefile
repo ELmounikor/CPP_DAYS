@@ -6,13 +6,13 @@
 #    By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 11:22:34 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/18 09:42:20 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/18 11:55:46 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= BloodyWar
-SRCS		= main.cpp AMateria.hpp
-INCS		= AMateria.hpp
+SRCS		= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
+INCS		= AMateria.hpp Ice.hpp Cure.hpp Icharacter.hpp Character.hpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
