@@ -6,14 +6,13 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:56:20 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 16:08:16 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:25:14 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER
-# define CHARACTER
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 # include "Icharacter.hpp"
-# include "IMateriaSource.hpp"
 
 class Character: public ICharacter
 {

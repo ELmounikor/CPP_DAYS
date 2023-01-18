@@ -6,12 +6,12 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:38:55 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 15:15:29 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:23:37 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA
-# define AMATERIA
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 # include "Icharacter.hpp"
 # include <iostream>
 

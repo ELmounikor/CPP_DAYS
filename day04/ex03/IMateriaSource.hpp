@@ -6,12 +6,13 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:25:39 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 18:06:32 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:26:15 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMS
-# define IMS
+#ifndef _IMS_HPP
+# define _IMS_HPP
+# include <iostream>
 # include "AMateria.hpp"
 
 class IMateriaSource
