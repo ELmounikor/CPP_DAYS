@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:56:11 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 17:44:38 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:48:42 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void Character::equip(AMateria* m)
 		this->num_of_skills++;
 		std::cout << "\033[1;35m"<<this->name << " equiped " << m->getType() << "succefully\n\033[0m";
 	}
-	else
+	if (this->num_of_skills >= 4)
 		std::cout << "\033[1;35m-> no more materia slots left for character " << this->name << "\n\033[0m";
 }
 
@@ -89,7 +89,7 @@ void Character::unequip(int idx)
 			std::cout << "\033[1;35m"<<this->name << " unequiped materia succefully\n\033[0m";
 		}
 		else
-			std::cout << "\033[1;35m-> no materia in this slot\n\033[0m";
+			std::cout << "\033[1;35m-> there is no materia in this slot\n\033[0m";
 	}
 	else
 		std::cout << "\033[1;35m-> materia id out of range " << this->name << "\n\033[0m";
