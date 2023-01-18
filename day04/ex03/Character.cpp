@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:56:11 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 20:19:51 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/18 21:07:08 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,17 @@ Character::Character()
 {
 	this->name = "";
 	this->num_of_skills = 0;
-	std::cout << "\033[0;95mClone of character "<< this->name <<" has come\n\033[0m";
+	for (int i = 0; i < 4 ; i++)
+		this->skills[i] = NULL;
+	std::cout << "\033[0;95mCharacter "<< this->name <<" has come\n\033[0m";
 }
 
 Character::Character(std::string const & name)
 {
 	this->name = name;
 	this->num_of_skills = 0;
+	for (int i = 0; i < 4 ; i++)
+		this->skills[i] = NULL;
 	std::cout << "\033[0;95mCharacter "<< this->name <<" has come\n\033[0m";
 }
 
@@ -49,11 +53,6 @@ Character &Character::operator=(const Character &old)
 
 Character::~Character()
 {
-	for (int i = 0; i < 4 ; i++)
-	{
-		if (this->skills[i])
-			delete this->skills[i];
-	}
 	std::cout << "\033[0;35mCharacter " << this->name << " has been destructed\n\033[0m";
 }
 
@@ -83,7 +82,6 @@ void Character::unequip(int idx)
 	{
 		if (this->skills[idx])
 		{
-			// delete this->skills[idx];
 			this->skills[idx] = NULL;
 			this->num_of_skills--;
 			std::cout << "\033[1;35m"<<this->name << " unequiped materia succefully\n\033[0m";

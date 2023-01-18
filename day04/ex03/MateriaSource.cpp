@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:29:32 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 20:12:21 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/18 20:51:17 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 
 MateriaSource::MateriaSource()
 {
+	this->num_of_materia = 0;
+	for (int i = 0; i < 4 ; i++)
+		this->materia[i] = NULL;
 	std::cout << "\033[0;93mMateriaSource has been created\n\033[0m";
 }
 
 MateriaSource::MateriaSource(MateriaSource const &old)
 {
+	this->num_of_materia = old.num_of_materia;
+	for (int i = 0; i < 4 ; i++)
+		this->materia[i] = old.materia[i];
+	(void)old;
 	std::cout << "\033[0;93mMateriaSource has been created\n\033[0m";
 }
 

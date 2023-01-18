@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:38:28 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 17:05:06 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/18 21:08:12 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ AMateria::AMateria()
 AMateria::AMateria(std::string const & type)
 {
 	this->type = type;
-	std::cout << "\033[0;91mMateria \033[0m";
+	std::cout << "\033[0;91mMateria created\n\033[0m";
 }
 
 AMateria::AMateria(const AMateria &old)
 {
 	this->type = old.type;
-	std::cout << "\033[0;91mMateria \033[0m";
+	std::cout << "\033[0;91mMateria created\n\033[0m";
 }
 
 AMateria &AMateria::operator=(const AMateria &old)
@@ -35,7 +35,7 @@ AMateria &AMateria::operator=(const AMateria &old)
 
 AMateria::~AMateria()
 {
-	std::cout << "\033[0;31mMateria of type \033[0m";
+	std::cout << "\033[0;31mMateria destruted\n\033[0m";
 }
 
 std::string const & AMateria::getType() const
