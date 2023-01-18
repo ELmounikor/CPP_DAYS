@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:56:11 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 17:48:42 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:02:20 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void Character::unequip(int idx)
 	{
 		if (this->skills[idx])
 		{
-			delete this->skills[idx];
+			// delete this->skills[idx];
 			this->skills[idx] = NULL;
 			this->num_of_skills--;
 			std::cout << "\033[1;35m"<<this->name << " unequiped materia succefully\n\033[0m";
