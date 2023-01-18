@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:38:28 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 15:51:37 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:05:06 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ AMateria::AMateria(std::string const & type)
 AMateria::AMateria(const AMateria &old)
 {
 	this->type = old.type;
-	std::cout << "\033[0;91mCopy materia \033[0m";
+	std::cout << "\033[0;91mMateria \033[0m";
 }
 
 AMateria &AMateria::operator=(const AMateria &old)
 {
+	(void) old;
+	return(*this);
 }
 
 AMateria::~AMateria()

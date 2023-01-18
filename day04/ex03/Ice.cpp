@@ -6,31 +6,26 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:53:29 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 15:55:54 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:03:54 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Ice.hpp"
 
-Ice::Ice()
-{
-    this->type = "ice";
-	std::cout << "\033[0;96mIce \033[0;91mhas been created\n\033[0m";
-}
-
-Ice::Ice(std::string const & type)
+Ice::Ice() : AMateria("ice")
 {
 	std::cout << "\033[0;96mIce \033[0;91mhas been created\n\033[0m";
 }
 
-Ice::Ice(const Ice &old)
+Ice::Ice(const Ice &old) : AMateria(old)
 {
-	std::cout << "\033[0;96mIce \033[0;91mhas been created\n\033[0m";
+	std::cout << "\033[0;96m"<< this->type << "\033[0;91m has been created\n\033[0m";
 }
 
 Ice &Ice::operator=(const Ice &old)
 {
+	(void) old;
 	return(*this);
 }
 
