@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:56:11 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 21:19:36 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 11:24:10 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Character::Character()
 	this->num_of_skills = 0;
 	for (int i = 0; i < 4 ; i++)
 		this->skills[i] = NULL;
-	std::cout << "\033[0;95mCharacter "<< this->name <<" has come\n\033[0m";
+	// std::cout << "\033[0;95mCharacter "<< this->name <<" has come\n\033[0m";
 }
 
 Character::Character(std::string const & name)
@@ -27,7 +27,7 @@ Character::Character(std::string const & name)
 	this->num_of_skills = 0;
 	for (int i = 0; i < 4 ; i++)
 		this->skills[i] = NULL;
-	std::cout << "\033[0;95mCharacter "<< this->name <<" has come\n\033[0m";
+	// std::cout << "\033[0;95mCharacter "<< this->name <<" has come\n\033[0m";
 }
 
 Character::Character(const Character &old)
@@ -36,7 +36,7 @@ Character::Character(const Character &old)
 	this->num_of_skills = old.num_of_skills;
 	for (int i = 0; i < 4 ; i++)
 		this->skills[i] = old.skills[i]; 
-	std::cout << "\033[0;95mClone of character "<< this->name <<" has come\n\033[0m";
+	// std::cout << "\033[0;95mClone of character "<< this->name <<" has come\n\033[0m";
 }
 
 Character &Character::operator=(const Character &old)
@@ -53,7 +53,7 @@ Character &Character::operator=(const Character &old)
 
 Character::~Character()
 {
-	std::cout << "\033[0;35mCharacter " << this->name << " has been destructed\n\033[0m";
+	// std::cout << "\033[0;35mCharacter " << this->name << " has been destructed\n\033[0m";
 }
 
 std::string const & Character::getName() const
@@ -70,7 +70,7 @@ void Character::equip(AMateria* m)
 			i++;
 		this->skills[i] = m;
 		this->num_of_skills++;
-		std::cout << "\033[1;35m"<<this->name << " equiped " << m->getType() << " succefully\n\033[0m";
+		// std::cout << "\033[1;35/m"<<this->name << " equiped " << m->getType() << " succefully\n\033[0m";
 	}
 	if (this->num_of_skills >= 4)
 		std::cout << "\033[1;35m-> no more materia slots left for character " << this->name << "\n\033[0m";
@@ -84,7 +84,7 @@ void Character::unequip(int idx)
 		{
 			this->skills[idx] = NULL;
 			this->num_of_skills--;
-			std::cout << "\033[1;35m"<<this->name << " unequiped materia succefully\n\033[0m";
+			// std::cout << "\033[1;35m"<<this->name << " unequiped materia succefully\n\033[0m";
 		}
 		else
 			std::cout << "\033[1;35m-> there is no materia in this slot\n\033[0m";

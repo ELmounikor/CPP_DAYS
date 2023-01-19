@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:10:18 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 21:20:56 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 11:24:33 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int main()
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
     me->use(1, *bob);
-    bob->unequip(2);
     delete bob;
     delete me;
     delete src;

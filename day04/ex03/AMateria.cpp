@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:38:28 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/18 21:08:12 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 11:26:48 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ AMateria::AMateria()
 AMateria::AMateria(std::string const & type)
 {
 	this->type = type;
-	std::cout << "\033[0;91mMateria created\n\033[0m";
+	// std::cout << "Materia created\n";
 }
 
 AMateria::AMateria(const AMateria &old)
 {
 	this->type = old.type;
-	std::cout << "\033[0;91mMateria created\n\033[0m";
+	// std::cout << "Materia created\n";
 }
 
 AMateria &AMateria::operator=(const AMateria &old)
@@ -35,7 +35,7 @@ AMateria &AMateria::operator=(const AMateria &old)
 
 AMateria::~AMateria()
 {
-	std::cout << "\033[0;31mMateria destruted\n\033[0m";
+	// std::cout << "Materia destruted\n";
 }
 
 std::string const & AMateria::getType() const
@@ -46,9 +46,9 @@ std::string const & AMateria::getType() const
 void AMateria::use(ICharacter& target)
 {
 	if (this->type == "ice")
-		std::cout << "\033[1;31m* shoots an ice bolt at " << target.getName() << " *\n\033[0m";
+		std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
 	else if (this->type == "cure")
-		std::cout << "\033[1;31m* heals " << target.getName() << "’s wounds *\n\033[0m";
+		std::cout << "* heals " << target.getName() << "’s wounds *\n";
 	else
-		std::cout << "\033[1;31m* uses " << this->type << " on " << target.getName() << " *\n\033[0m";
+		std::cout << "* uses " << this->type << " on " << target.getName() << " *\n";
 }
