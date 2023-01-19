@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:09:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 18:10:22 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 11:13:10 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
     i->makeSound(); //will output the cat sound!
     j->makeSound(); //will output the dog sound!
     meta->makeSound();//will output Unknown sound
-    test->makeSound();
+    test->makeSound();//will output the wrong cat sound!
     delete i;
     delete j;
     delete meta;
