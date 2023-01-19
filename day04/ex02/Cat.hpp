@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:21:09 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 17:06:33 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 13:18:55 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Cat : public Animal
 		Cat &operator=(const Cat &old);
 		virtual ~Cat();
 		void makeSound() const;
+		Brain *getBrain(void);
 };
 
 #endif

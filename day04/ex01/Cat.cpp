@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:25:40 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 17:39:01 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 14:54:21 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ Cat::Cat()
 Cat::Cat(Cat const &old)
 {
 	this->type = old.type;
-	this->brain = old.brain;
+	this->brain = new Brain();
+	for (unsigned long i = 0; i < 100; i++)
+		this->brain->setIdea(i, old.brain->getIdea(i));
 	std::cout << "\033[0;92mCat has been created\n\033[0m";
 }
 
@@ -31,7 +33,8 @@ Cat &Cat::operator=(const Cat &old)
 	if (this != &old)
 	{
 		this->type = old.type;
-		this->brain = old.brain;
+		for (unsigned long i = 0; i < 100; i++)
+			this->brain->setIdea(i, old.brain->getIdea(i));
 	}
     return (*this);
 }
@@ -45,4 +48,9 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
 	std::cout << "\033[1;92mMyaw!\n\033[0m";
+}
+
+Brain *Cat::getBrain(void)
+{
+	return(this->brain);
 }

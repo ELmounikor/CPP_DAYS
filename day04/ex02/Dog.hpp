@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:27:03 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 17:06:24 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 13:20:04 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Dog : public Animal
 		Dog &operator=(const Dog &old);
 		virtual ~Dog();
 		void makeSound() const;
+		Brain *getBrain(void);
 };
 
 #endif

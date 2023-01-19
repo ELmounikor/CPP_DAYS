@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:29:32 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/19 11:23:01 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:52:37 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,17 @@ MateriaSource::MateriaSource(MateriaSource const &old)
 	this->num_of_materia = old.num_of_materia;
 	for (int i = 0; i < 4 ; i++)
 		this->materia[i] = old.materia[i];
-	(void)old;
 	// std::cout << "\033[0;93mMateriaSource has been created\n\033[0m";
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &old)
 {
-	(void)old;
+	if (this != &old)
+	{
+		this->num_of_materia = old.num_of_materia;
+		for (int i = 0; i < 4 ; i++)
+			this->materia[i] = old.materia[i];
+	}
 	return(*this);
 }
 
@@ -52,21 +56,27 @@ void MateriaSource::learnMateria(AMateria* m)
 		int i = 0;
 		while (this->materia[i])
 			i++;
-		this->materia[i] = m;
-		this->num_of_materia++;
+		if (m)
+		{
+			this->materia[i] = m;
+			this->num_of_materia++;
 		// std::cout << "\033[1;33m"<< m->getType() << " added succefully\n\033[0m";
+		}
 	}
-	if (this->num_of_materia >= 4)
+	else
 		std::cout << "\033[1;33m-> no more materia slots left in MateriaSource\n\033[0m";
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	int i = 0;
-	while (this->materia[i] && this->materia[i]->getType() != type)
+	while (i < this->num_of_materia && this->materia[i]->getType() != type)
 		i++;
-	if (!this->materia[i])
-		std::cout << "\033[1;33m-> there is no "<< type <<"materia in MateriaSource learned yet\n\033[0m";
+	if (i == this->num_of_materia)
+	{
+		std::cout << "\033[1;33m-> there is no "<< type <<" materia in MateriaSource learned yet\n\033[0m";
+		return(NULL);	
+	}
 	return (this->materia[i]);
 }
 

@@ -6,7 +6,7 @@
 #    By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 11:22:34 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/18 21:05:23 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/19 15:54:36 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS		= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 INCS		= AMateria.hpp Ice.hpp Cure.hpp Icharacter.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp 
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
 RM			= @rm -rf
 	
 %.o : %.cpp 

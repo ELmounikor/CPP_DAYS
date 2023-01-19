@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:27:37 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/17 17:39:10 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 14:54:49 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ Dog::Dog()
 Dog::Dog(Dog const &old)
 {
 	this->type = old.type;
-	this->brain = old.brain;
+	this->brain = new Brain();
+	for (unsigned long i = 0; i < 100; i++)
+		this->brain->setIdea(i, old.brain->getIdea(i));
 	std::cout << "\033[0;93mDog has been created\n\033[0m";
 }
 
@@ -31,7 +33,8 @@ Dog &Dog::operator=(const Dog &old)
 	if (this != &old)
 	{
 		this->type = old.type;
-		this->brain = old.brain;
+		for (unsigned long i = 0; i < 100; i++)
+			this->brain->setIdea(i, old.brain->getIdea(i));
 	}
     return (*this);
 }
@@ -45,4 +48,9 @@ Dog::~Dog()
 void Dog::makeSound() const
 {
 	std::cout << "\033[1;93mWoaf!\n\033[0m";
+}
+
+Brain *Dog::getBrain(void)
+{
+	return(this->brain);
 }

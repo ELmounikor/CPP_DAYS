@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:09:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/19 11:18:55 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:05:57 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,21 @@ int main()
     j->makeSound(); //will output the dog sound!
     delete i;
     delete j;
+    // Cat *a = new Cat();
+    // a->getBrain()->setIdea(0, "hello");
+    // Cat *b = new Cat(*a);
+    // std::cout << a->getBrain()->getIdeas()[0] << std::endl;
+    // std::cout << b->getBrain()->getIdeas()[0] << std::endl;
+    // a->getBrain()->getIdeas()[0]  = "hey";
+    // std::cout << a->getBrain()->getIdeas()[0]  << std::endl;
+    // std::cout << b->getBrain()->getIdeas()[0]  << std::endl;
+    // *a = *b;
+    // std::cout << a->getBrain()->getIdeas()[0]  << std::endl;
+    // std::cout << b->getBrain()->getIdeas()[0]  << std::endl;
+    // a->getBrain()->getIdeas()[0]  = "mounia";
+    // std::cout << a->getBrain()->getIdeas()[0]  << std::endl;
+    // std::cout << b->getBrain()->getIdeas()[0]  << std::endl;
+    // delete a;
+    // delete b;
     return 0;
 }

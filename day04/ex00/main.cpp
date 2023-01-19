@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:09:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/19 11:13:10 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:03:15 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 int main()
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    const WrongAnimal* test = new WrongCat();
+    Animal* meta = new Animal();
+    Animal* j = new Dog();
+    Animal* i = new Cat();
+    WrongAnimal* test = new WrongCat();
 
     std::cout << meta->getType() << std::endl;
     std::cout << j->getType() << std::endl;
