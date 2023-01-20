@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/20 12:36:30 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/20 14:47:41 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,19 @@ Bureaucrat::Bureaucrat(): name(""), grade(150)
 
 Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
 {
-	if (grade < 1)
-		throw std::runtime_error("Bureaucrat::GradeTooHighException");
-	else if (grade > 150)
-		throw std::runtime_error("Bureaucrat::GradeTooLowException");
-	else
-		this->grade = grade;
+    try
+    {
+        if (grade < 1)
+            throw std::runtime_error("Bureaucrat::GradeTooHighException");
+        else if (grade > 150)
+            throw std::runtime_error("Bureaucrat::GradeTooLowException");
+        else
+            this->grade = grade;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &old): name(old.name), grade(old.grade)
@@ -63,7 +70,7 @@ void Bureaucrat::setGrade(unsigned int new_grade)
         else if (new_grade > 150)
             throw std::runtime_error("Bureaucrat::GradeTooLowException");
         else
-            this->grade = grade;
+            this->grade = new_grade;
     }
     catch(const std::exception& e)
     {

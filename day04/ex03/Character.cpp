@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:56:11 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/20 10:01:03 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:07:52 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ void Character::unequip(int idx)
 			// std::cout << "\033[1;35m"<<this->name << " unequiped materia succefully\n\033[0m";
 		}
 		else
-			std::cout << "\033[1;35m-> there is no materia in this slot\n\033[0m";
+			std::cout << "\033[1;35m-> there is no materia in this slot\033[0m\n";
 	}
 	else
-		std::cout << "\033[1;35m-> materia id out of range " << this->name << "\n\033[0m";
+		std::cout << "\033[1;35m-> materia id out of range " << this->name << "\033[0m\n";
 }
 
 void Character::use(int idx, ICharacter& target)
@@ -103,8 +103,8 @@ void Character::use(int idx, ICharacter& target)
 		if (this->skills[idx])
 			this->skills[idx]->use(target);
 		else
-			std::cout << "\033[1;35m-> no materia in this slot\n\033[0m";
+			std::cout << "\033[1;35m-> no materia in this slot\033[0m\n";
 	}
 	else
-		std::cout << "\033[1;35m-> materia id out of range " << this->name << "\n\033[0m";
+		std::cout << "\033[1;35m-> materia id out of range " << this->name << "\033[0m\n";
 }
