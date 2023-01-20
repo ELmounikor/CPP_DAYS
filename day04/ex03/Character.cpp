@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:56:11 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/19 15:31:51 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/20 10:01:03 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ void Character::equip(AMateria* m)
 		int i = 0;
 		while (this->skills[i])
 			i++;
-		if (m != NULL)
+		if (m)
 		{
 			this->skills[i] = m;
 			this->num_of_skills++;
 		// std::cout << "\033[1;35/m"<<this->name << " equiped " << m->getType() << " succefully\n\033[0m";
 		}
 	}
-	if (this->num_of_skills >= 4)
+	else
 		std::cout << "\033[1;35m-> no more materia slots left for character " << this->name << "\n\033[0m";
 }
 
