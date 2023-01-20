@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/20 12:33:51 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/20 12:36:30 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,47 @@ unsigned int Bureaucrat::getGrade() const
 
 void Bureaucrat::setGrade(unsigned int new_grade)
 {
-	if (new_grade < 1)
-		throw std::runtime_error("Bureaucrat::GradeTooHighException");
-	else if (new_grade > 150)
-		throw std::runtime_error("Bureaucrat::GradeTooLowException");
-	else
-		this->grade = grade;
+    try 
+    {
+        if (new_grade < 1)
+            throw std::runtime_error("Bureaucrat::GradeTooHighException");
+        else if (new_grade > 150)
+            throw std::runtime_error("Bureaucrat::GradeTooLowException");
+        else
+            this->grade = grade;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
 void Bureaucrat::increment()
 {
-	if (grade == 1)
-		throw std::runtime_error("Bureaucrat::GradeTooHighException");
-	else
-		grade--;
+    try
+    {
+        if (grade == 1)
+            throw std::runtime_error("Bureaucrat::GradeTooHighException");
+        else
+            grade--;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
 void Bureaucrat::decrement()
 {
-	if (grade == 150)
-		throw std::runtime_error("Bureaucrat::GradeTooLowException");
-	else
-		grade++;
+    try
+    {
+        if (grade == 150)
+            throw std::runtime_error("Bureaucrat::GradeTooLowException");
+        else
+            grade++;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
