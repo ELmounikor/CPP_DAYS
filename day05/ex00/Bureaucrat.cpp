@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/21 13:29:19 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/21 15:57:09 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat(): name(""), grade(150)
 {
-    std::cout << "Adding Bureaucrat:: "<< *this;
+    std::cout << "Adding :: "<< *this;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
@@ -25,12 +25,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
         throw GradeTooLowException();
     else
         this->grade = grade;
-    std::cout << "Adding Bureaucrat:: "<< *this;
+    std::cout << "Adding :: "<< *this;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &old): name(old.name), grade(old.grade)
 {
-    std::cout << "Removing Bureaucrat:: "<< *this;
+    std::cout << "Removing :: "<< *this;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &old)

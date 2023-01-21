@@ -6,13 +6,13 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:45:49 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/21 13:49:39 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/21 16:02:21 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
 
-int main()
+int man()
 {
 	try
 	{
@@ -25,4 +25,11 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
+	return 0;
+}
+
+int main()
+{
+	man();
+	system("leaks bureaucrat");
 }
