@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 11:22:34 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/20 11:36:01 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/21 18:41:52 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS		= main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp WrongCat.cpp WrongAnimal.c
 INCS		= Animal.hpp Cat.hpp Dog.hpp Brain.hpp WrongCat.hpp WrongAnimal.hpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 #-fno-elide-constructors #-fsanitize=address
 RM			= @rm -rf
 
 .cpp.o:		

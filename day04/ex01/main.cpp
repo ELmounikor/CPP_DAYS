@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:09:43 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/20 15:27:03 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/21 18:41:32 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 
 int main()
 {
-    unsigned int n = 3;
-    Animal *array[n];
-    for (unsigned int i = 0 ; i < n ; i++)
-    {
-        if (i % 2)
-            array[i] = new Cat();
-        else
-            array[i] = new Dog();
-    }
-    for (unsigned int i = 0 ; i < n ; i++)
-        array[i]->makeSound();
+//     unsigned int n = 3;
+//     Animal *array[n];
+//     for (unsigned int i = 0 ; i < n ; i++)
+//     {
+//         if (i % 2)
+//             array[i] = new Cat();
+//         else
+//             array[i] = new Dog();
+//     }
+//     for (unsigned int i = 0 ; i < n ; i++)
+//         array[i]->makeSound();
 
-    for (unsigned int i = 0 ; i < n ; i++)
-        delete array[i];
+//     for (unsigned int i = 0 ; i < n ; i++)
+//         delete array[i];
 
     // const Animal* meta = new Animal();
     // const Animal* j = new Dog();
@@ -59,5 +59,11 @@ int main()
     // std::cout << b->getBrain()->getIdeas()[0]  << std::endl;
     // delete a;
     // delete b;
+    Dog basic;
+        std::cout<<"       start            "<<std::endl;
+            {
+                Dog tmp = basic;
+            }
+        std::cout<<" end                  "<<std::endl;
     return 0;
 }
