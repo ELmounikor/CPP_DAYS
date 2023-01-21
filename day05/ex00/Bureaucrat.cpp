@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/20 14:47:41 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:05:49 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,23 @@
 
 Bureaucrat::Bureaucrat(): name(""), grade(150)
 {
+    std::cout << "Adding Bureaucrat:: "<< *this;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
 {
-    try
-    {
-        if (grade < 1)
-            throw std::runtime_error("Bureaucrat::GradeTooHighException");
-        else if (grade > 150)
-            throw std::runtime_error("Bureaucrat::GradeTooLowException");
-        else
-            this->grade = grade;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    if (grade < 1)
+        throw std::runtime_error("Bureaucrat::GradeTooHighException");
+    else if (grade > 150)
+        throw std::runtime_error("Bureaucrat::GradeTooLowException");
+    else
+        this->grade = grade;
+    std::cout << "Adding Bureaucrat:: "<< *this;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &old): name(old.name), grade(old.grade)
 {
+    std::cout << "Removing Bureaucrat:: "<< *this;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &old)
@@ -63,47 +59,32 @@ unsigned int Bureaucrat::getGrade() const
 
 void Bureaucrat::setGrade(unsigned int new_grade)
 {
-    try 
-    {
         if (new_grade < 1)
             throw std::runtime_error("Bureaucrat::GradeTooHighException");
         else if (new_grade > 150)
             throw std::runtime_error("Bureaucrat::GradeTooLowException");
         else
             this->grade = new_grade;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
 }
 
 void Bureaucrat::increment()
 {
-    try
-    {
         if (grade == 1)
             throw std::runtime_error("Bureaucrat::GradeTooHighException");
         else
             grade--;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
 }
 
 void Bureaucrat::decrement()
 {
-    try
-    {
-        if (grade == 150)
-            throw std::runtime_error("Bureaucrat::GradeTooLowException");
-        else
-            grade++;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    if (grade == 150)
+        throw std::runtime_error("Bureaucrat::GradeTooLowException");
+    else
+        grade++;
+}
+
+std::ostream &operator<<( std::ostream &output, const Bureaucrat &X )
+{
+	output << X.getName() << ", bureaucrat grade " << X.getGrade() <<".\n";
+	return (output);
 }
