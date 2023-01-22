@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 19:10:17 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 19:24:19 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void Bureaucrat::signForm(Form const &form, bool status)
 
 void Bureaucrat::executeForm(Form const &form)
 {
+	form.execute(*this);
 	std::cout << SIMPLE_Bright_Yellow << *this << " executed " << form  << Color_CLEAR << std::endl;
 }
 
