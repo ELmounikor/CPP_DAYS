@@ -6,7 +6,7 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:41:55 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/22 11:40:21 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/22 18:59:49 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ clean:
 			@echo "\033[1;94m	----> files deleted \033[0m"
 
 fclean:		clean
-			$(RM) $(NAME) 
+			$(RM) $(NAME)
 
 re:			fclean all
 

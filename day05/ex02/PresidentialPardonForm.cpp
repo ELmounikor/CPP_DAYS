@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:17:19 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 13:01:56 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 19:10:01 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,16 @@ PresidentialPardonForm &PresidentialPardonForm::operator=( PresidentialPardonFor
 */
 
 
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+	if (this->getSignatureState() && executor.getGrade() <= this->getGrade_exec())
+	{
+		std::cout << BOLD_Bright_Magenta << this->getTarget() << " has been pardoned by Zaphod Beeblebrox.\n" << Color_CLEAR;
+	}
+	else if (!this->getSignatureState())
+		throw Form::FormNotSigned();
+	else
+		throw Form::GradeTooLowException();
+}
 
 /* ************************************************************************** */

@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 11:18:29 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 19:10:17 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void Bureaucrat::decrement()
 		grade++;
 }
 
-void Bureaucrat::signForm(Form &form, bool status)
+void Bureaucrat::signForm(Form const &form, bool status)
 {
 	if (status)
 		std::cout << SIMPLE_Bright_Yellow << *this << " signed " << form  << Color_CLEAR << std::endl;
@@ -97,7 +97,12 @@ void Bureaucrat::signForm(Form &form, bool status)
 			std::cout << SIMPLE_Matte_Yellow << " - The grade is too low for that" << Color_CLEAR << std::endl;
 	}
 }
-		
+
+void Bureaucrat::executeForm(Form const &form)
+{
+	std::cout << SIMPLE_Bright_Yellow << *this << " executed " << form  << Color_CLEAR << std::endl;
+}
+
 std::ostream &operator<<( std::ostream &output, const Bureaucrat &X )
 {
 	output << X.getName() << ", bureaucrat grade " << X.getGrade();

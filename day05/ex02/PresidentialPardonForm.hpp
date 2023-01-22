@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:17:29 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 12:20:52 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 19:16:13 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class PresidentialPardonForm: public Form
 		PresidentialPardonForm( PresidentialPardonForm const &src );
 		~PresidentialPardonForm();
 		PresidentialPardonForm &operator=( PresidentialPardonForm const &old );
+		void execute(Bureaucrat const & executor) const;
 };
 
 #endif /* ****************************************** PRESIDENTIALPARDONFORM_H */

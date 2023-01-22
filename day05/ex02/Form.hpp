@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:10:18 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 13:04:06 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 19:21:06 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ class Form
 				return ("Grade Too Low!");
 			}
 		};
+		class FormNotSigned: public std::exception
+		{
+			const char* what() const throw()
+			{
+				return ("Form Not Signed!");
+			}
+		};
 		Form();
 		Form(std::string name, int grade_sign, int grade_exec, std::string target);
 		Form(Form const &old);
@@ -50,6 +57,7 @@ class Form
 		unsigned int getGrade_sign() const;
 		unsigned int getGrade_exec() const;
 		void beSigned(Bureaucrat &br);
+		virtual void execute(Bureaucrat const &executor) const = 0;
 };
 
 std::ostream &operator<<( std::ostream &output, const Form &X );

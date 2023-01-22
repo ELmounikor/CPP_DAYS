@@ -10,6 +10,7 @@ class RobotomyRequestForm: public Form
 		RobotomyRequestForm( RobotomyRequestForm const &src );
 		~RobotomyRequestForm();
 		RobotomyRequestForm &operator=( RobotomyRequestForm const &old );
+		void execute(Bureaucrat const & executor)const;
 };
 
 #endif /* ********************************************* ROBOTOMYREQUESTFORM_H */

@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:17:54 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 13:02:13 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 19:09:43 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,21 @@ RobotomyRequestForm &RobotomyRequestForm::operator=( RobotomyRequestForm const &
 ** --------------------------------- METHODS ----------------------------------
 */
 
-
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
+{
+	if (this->getSignatureState() && executor.getGrade() <= this->getGrade_exec())
+	{
+		srand(time(NULL));
+		int random = rand() % 2;
+		if (random)
+			std::cout << SIMPLE_Bright_Magenta << '\a' << "* drilling noises * " << '\a' << this->getTarget() << " has been robotomized successfully\n" << Color_CLEAR;
+		else
+			std::cout << SIMPLE_Matte_Magenta << '\a' << this->getTarget() << "'s robotomy failed.\n" << Color_CLEAR;
+	}
+	else if (!this->getSignatureState())
+		throw Form::FormNotSigned();
+	else
+		throw Form::GradeTooLowException();
+}
 
 /* ************************************************************************** */

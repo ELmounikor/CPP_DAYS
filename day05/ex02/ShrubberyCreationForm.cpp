@@ -6,11 +6,12 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:21:11 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 13:02:24 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 19:21:45 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include "fstream"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -57,6 +58,39 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=( ShrubberyCreationForm c
 ** --------------------------------- METHODS ----------------------------------
 */
 
-
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+	if (this->getSignatureState() && executor.getGrade() <= this->getGrade_exec())
+	{
+		// std::string line;
+		// std::string tree = MY_TREE;
+		// std::fstream file(this->getTarget() + "_shrubbery", std::ios::in | std::ios::out);
+		// if (file.is_open())
+		// {
+		// 	int i = 0;
+		// 	while (std::getline(file, line))
+		// 	{
+		// 		file << line + tree.substr(i * 117, 116) + "\n";
+		// 		i++;
+		// 	}
+		// 	file.close();
+		// }
+		// else
+		// {
+			std::fstream file(this->getTarget() + "_shrubbery", std::ios::out | std::ios::app);
+			if (file.is_open())
+			{
+				file << MY_TREE;
+				file.close();
+			}
+			else
+				std::cout << SIMPLE_Matte_Red << "The trees can't be planted in " << this->getTarget() << "\n" << Color_CLEAR;
+		// }
+	}
+	else if (!this->getSignatureState())
+		throw Form::FormNotSigned();
+	else
+		throw Form::GradeTooLowException();
+}
 
 /* ************************************************************************** */

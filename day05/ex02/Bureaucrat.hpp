@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:48 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/21 19:59:34 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:54:03 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ class Bureaucrat
 		void setGrade(unsigned int new_grade);
 		void increment();
 		void decrement();
-		void signForm(Form &form, bool status);
+		void signForm(Form const &form, bool status);
+		void executeForm(Form const &form);
 };
 
 std::ostream &operator<<( std::ostream &output, const Bureaucrat &X );

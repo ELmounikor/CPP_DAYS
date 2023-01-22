@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:10:07 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 13:05:20 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 19:14:38 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ unsigned int Form::getGrade_exec() const
 
 void Form::beSigned(Bureaucrat &br)
 {
-	if (br.getGrade() <= this->grade_sign)
+	if (br.getGrade() <= this->grade_sign && !this->signature)
 	{
 		br.signForm(*this, 1);
 		this->signature = 1;
@@ -82,12 +82,13 @@ void Form::beSigned(Bureaucrat &br)
 	else
 	{
 		br.signForm(*this, 0);
-		throw GradeTooLowException();
+		if (br.getGrade() > this->grade_sign)
+			throw GradeTooLowException();
 	}
 }
 
 std::ostream &operator<<( std::ostream &output, const Form &X )
 {
-	output << "[" << X.getName() << "] form (sign grade :" << X.getGrade_sign() << " and execute grade " << X.getGrade_exec() << ")";
+	output << "[" << X.getName() << "] form with target '"<< X.getTarget() <<"' (sign grade: " << X.getGrade_sign() << " and execute grade: " << X.getGrade_exec() << ")";
 	return (output);
 }
