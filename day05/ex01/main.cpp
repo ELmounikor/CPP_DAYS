@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:45:49 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/21 19:58:24 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 11:03:04 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,19 @@
 
 int man()
 {
-	Bureaucrat *A;
-	Bureaucrat *B;
 	try
 	{
-		Bureaucrat mounia("mounia", 1);
-		A = new Bureaucrat("bob", 2);
-		B = new Bureaucrat("alice", 150);
+		Bureaucrat A("bob", 2);
+		Bureaucrat B("alice", 1);
+		Form C("alliance with btc", 1, 2);
 		
-		A->decrement();
-		B->increment();
-		mounia.increment();
+		C.beSigned(B);
+		C.beSigned(A);
 	}
     catch(const std::exception& e)
     {
         std::cerr << BOLD_Bright_Red << e.what() << "\n" << Color_CLEAR;
     }
-	delete A;
-	delete B;
 	return 0;
 }
 

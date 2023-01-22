@@ -6,15 +6,15 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/21 21:13:12 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 11:16:44 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): name(""), grade(150)
+Bureaucrat::Bureaucrat(): name("no_name"), grade(150)
 {
-	std::cout << SIMPLE_Bright_Blue << "Adding :: "<< *this << Color_CLEAR;
+	std::cout << SIMPLE_Bright_Blue << "Adding :: "<< *this << Color_CLEAR << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
@@ -25,19 +25,19 @@ Bureaucrat::Bureaucrat(std::string name, int grade): name(name)
 		throw GradeTooLowException();
 	else
 		this->grade = grade;
-	std::cout << SIMPLE_Bright_Blue << "Adding :: "<< *this << Color_CLEAR;
+	std::cout << SIMPLE_Bright_Blue << "Adding :: "<< *this << Color_CLEAR << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &old): name(old.name), grade(old.grade)
 {
-	std::cout << SIMPLE_Bright_Blue << "Adding copy ::"<< *this << Color_CLEAR;
+	std::cout << SIMPLE_Bright_Blue << "Adding copy ::"<< *this << Color_CLEAR << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &old)
 {
 	if (this != &old)
 	{
-		std::cout << SIMPLE_Bright_Red << "cannot change the name but the grade change is successful\n " << Color_CLEAR;
+		std::cout << SIMPLE_Bright_Red << "cannot change the name but the grade change is successful" << Color_CLEAR << std::endl;
 		this->grade = old.grade;
 	}
 	return (*this);
@@ -45,7 +45,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &old)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << SIMPLE_Matte_Blue << "Removing :: "<< *this << Color_CLEAR;
+	std::cout << SIMPLE_Matte_Blue << "Removing :: "<< *this << Color_CLEAR << std::endl;
 }
 
 std::string Bureaucrat::getName() const
@@ -87,11 +87,15 @@ void Bureaucrat::decrement()
 void Bureaucrat::signForm(Form &form, bool status)
 {
 	if (status)
-		std::cout << SIMPLE_Bright_Magenta << *this << "  signed " << form ;
-	else if (form.getSignatureState())
-		std::cout << SIMPLE_Matte_Magenta << *this << " couldn’t sign " << form << " because form is already signed";
-	else if (this->grade > form.getGrade_sign())
-		std::cout << SIMPLE_Matte_Magenta << *this << " couldn’t sign " << form << " because grade too low for that";
+		std::cout << SIMPLE_Bright_Yellow << *this << " signed " << form  << Color_CLEAR << std::endl;
+	else
+	{
+		std::cout << SIMPLE_Matte_Yellow << *this << " couldn’t sign " << form << " because of the following reasons:\n";
+		if (form.getSignatureState())
+			std::cout << SIMPLE_Matte_Yellow << " -It's is already signed" << Color_CLEAR << std::endl;
+		if (this->grade > form.getGrade_sign())
+			std::cout << SIMPLE_Matte_Yellow << " -The grade is too low for that" << Color_CLEAR << std::endl;
+	}
 }
 		
 std::ostream &operator<<( std::ostream &output, const Bureaucrat &X )
