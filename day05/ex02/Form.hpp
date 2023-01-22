@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:10:18 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/21 20:01:50 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 12:06:37 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Form
 {
 	private:
 		const std::string	name;
+		std::string			target;
 		bool				signature;
 		const unsigned int	grade_sign;
 		const unsigned int	grade_exec;
@@ -39,11 +40,12 @@ class Form
 			}
 		};
 		Form();
-		Form(std::string name, int grade_sign, int grade_exec);
+		Form(std::string name, int grade_sign, int grade_exec, std::string target);
 		Form(Form const &old);
 		Form &operator=(const Form &old);
-		~Form();
+		virtual ~Form() = 0;
 		std::string getName() const;
+		std::string getTarget() const;
 		bool getSignatureState() const;
 		unsigned int getGrade_sign() const;
 		unsigned int getGrade_exec() const;

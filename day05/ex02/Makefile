@@ -6,13 +6,13 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:41:55 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/21 20:10:32 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/22 11:40:21 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= bureaucrat
-SRCS		= main.cpp Bureaucrat.cpp Form.cpp
-INCS		= Bureaucrat.hpp Form.hpp
+SRCS		= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+INCS		= Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
