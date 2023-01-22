@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:17:19 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 12:17:20 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:01:56 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::PresidentialPardonForm(): Form("Presidential Pardon", 25, 45, "")
+PresidentialPardonForm::PresidentialPardonForm(): Form("Presidential Pardon", 25, 45, "notarget")
 {
 	std::cout << SIMPLE_Bright_Cyan << *this << " has been created\n" << Color_CLEAR;
 }

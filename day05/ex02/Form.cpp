@@ -6,28 +6,29 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:10:07 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 12:10:53 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:05:20 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form():  name("no_name"), signature(0), grade_sign(1), grade_exec(150), target("")
+Form::Form():  name("no_name"), grade_sign(1), grade_exec(150), target(""), signature(0)
 {
     std::cout << SIMPLE_Bright_Green << "Adding :: "<< *this << Color_CLEAR << std::endl;
 }
 
-Form::Form(std::string name, int grade1,  int grade2, std::string target): name(name), grade_sign(grade1), grade_exec(grade2), target(target)
+Form::Form(std::string name, int grade1,  int grade2, std::string target): name(name), grade_sign(grade1), grade_exec(grade2)
 {
     if (grade1 < 1 || grade2 < 1)
         throw GradeTooHighException();
     else if (grade1 > 150 || grade2 > 150)
         throw GradeTooLowException();
 	this->signature = 0;
+	this->target = target;
     std::cout << SIMPLE_Bright_Green << "Adding :: "<< *this << Color_CLEAR << std::endl;
 }
 
-Form::Form(Form const &old): name(old.name), signature(old.signature), grade_sign(old.grade_sign), grade_exec(old.grade_exec), target(old.target)
+Form::Form(Form const &old): name(old.name), grade_sign(old.grade_sign), grade_exec(old.grade_exec), target(old.target), signature(old.signature)
 {
     std::cout << SIMPLE_Bright_Green "Adding copy :: "<< *this << Color_CLEAR << std::endl;
 }

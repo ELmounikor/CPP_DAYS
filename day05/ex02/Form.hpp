@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:10:18 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 12:06:37 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:04:06 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class Form
 {
 	private:
 		const std::string	name;
-		std::string			target;
-		bool				signature;
 		const unsigned int	grade_sign;
 		const unsigned int	grade_exec;
+		std::string			target;
+		bool				signature;
 		
 	public:
 		class GradeTooHighException: public std::exception

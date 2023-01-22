@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:21:11 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 12:21:47 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:02:24 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm(): Form("Shrubbery Creation", 145, 137, "")
+ShrubberyCreationForm::ShrubberyCreationForm(): Form("Shrubbery Creation", 145, 137, "notarget")
 {
 	std::cout << SIMPLE_Bright_Cyan << *this << " has been created\n" << Color_CLEAR;
 }

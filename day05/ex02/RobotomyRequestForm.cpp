@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:17:54 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 12:19:02 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:02:13 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::RobotomyRequestForm(): Form("Robotomy Request", 72, 45, "")
+RobotomyRequestForm::RobotomyRequestForm(): Form("Robotomy Request", 72, 45, "notarget")
 {
 	std::cout << SIMPLE_Bright_Cyan << *this << " has been created\n" << Color_CLEAR;
 }
