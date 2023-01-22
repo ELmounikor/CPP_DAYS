@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 11:38:27 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:49:57 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void Bureaucrat::decrement()
 		grade++;
 }
 
-void Bureaucrat::signForm(Form &form, bool status)
+void Bureaucrat::signForm(Form const &form, bool status)
 {
 	if (status)
 		std::cout << SIMPLE_Bright_Yellow << *this << " signed " << form  << Color_CLEAR << std::endl;
