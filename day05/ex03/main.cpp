@@ -6,12 +6,12 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:45:49 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/23 11:29:48 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 13:05:34 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Intern.hpp"
-
+# include "stdlib.h"
 int man()
 {
 	Intern si_brahim;
@@ -24,13 +24,15 @@ int man()
 		Bureaucrat A("bob", 1);
 		Bureaucrat B("alice", 1);
 		
+		// char *str = (char *)malloc (4545);
+		// (void) str;
 		F1->beSigned(A);
 		F3->beSigned(B);
 		F2->beSigned(A);
-		A.executeForm(*F3);
 		B.executeForm(*F1);
-		A.executeForm(*F3);
 		B.executeForm(*F2);
+		A.executeForm(*F3);
+		// free(str);
 	}
     catch(const std::exception& e)
     {
@@ -46,5 +48,5 @@ int man()
 int main()
 {
 	man();
-	// system("leaks bureaucrat");
+	system("leaks intern");
 }
