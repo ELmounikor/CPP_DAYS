@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/23 08:27:09 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 11:23:24 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,11 @@ void Bureaucrat::decrement()
 
 void Bureaucrat::signForm(Form const &form, bool status)
 {
+	if (&form == (Form*)NULL)
+	{
+		std::cout << BOLD_Bright_Red << "Form not found\n" << Color_CLEAR;
+		return ; 
+	}
 	if (status)
 		std::cout << SIMPLE_Bright_Magenta << *this << " signed " << form  << Color_CLEAR << std::endl;
 	else
@@ -100,6 +105,11 @@ void Bureaucrat::signForm(Form const &form, bool status)
 
 void Bureaucrat::executeForm(Form const &form)
 {
+	if (&form == (Form*)NULL)
+	{
+		std::cout << BOLD_Bright_Red << "Form not found\n" << Color_CLEAR;
+		return ; 
+	}
 	form.execute(*this);
 	std::cout << BOLD_Bright_Black << *this << " executed " << form  << Color_CLEAR << std::endl;
 }

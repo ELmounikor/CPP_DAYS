@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 12:21:11 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 21:15:10 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 11:26:54 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=( ShrubberyCreationForm c
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
+	if (this == (Form*)NULL)
+	{
+		std::cout << BOLD_Bright_Red << "Form not found\n" << Color_CLEAR;
+		return ; 
+	}
 	if (this->getSignatureState() && executor.getGrade() <= this->getGrade_exec())
 	{
 		std::ofstream file(this->getTarget() + "_shrubbery", std::ios::out | std::ios::app);

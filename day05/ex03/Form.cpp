@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 16:10:07 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/23 08:29:33 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 11:26:12 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,31 +49,61 @@ Form::~Form()
 
 std::string Form::getName() const
 {
+	if (this == (Form*)NULL)
+	{
+		std::cout << BOLD_Bright_Red << "Form not found\n" << Color_CLEAR;
+		return ""; 
+	}
 	return (this->name);
 }
 
 std::string Form::getTarget() const
 {
+	if (this == (Form*)NULL)
+	{
+		std::cout << BOLD_Bright_Red << "Form not found\n" << Color_CLEAR;
+		return ""; 
+	}
 	return (this->target);
 }
 
 bool Form::getSignatureState() const
 {
+	if (this == (Form*)NULL)
+	{
+		std::cout << BOLD_Bright_Red << "Form not found\n" << Color_CLEAR;
+		return 0; 
+	}
 	return (this->signature);
 }
 
 unsigned int Form::getGrade_sign() const
 {
+	if (this == (Form*)NULL)
+	{
+		std::cout << BOLD_Bright_Red << "Form not found\n" << Color_CLEAR;
+		return 0; 
+	}
 	return (this->grade_sign);
 }
 
 unsigned int Form::getGrade_exec() const
 {
+	if (this == (Form*)NULL)
+	{
+		std::cout << BOLD_Bright_Red << "Form not found\n" << Color_CLEAR;
+		return 0; 
+	}
 	return (this->grade_exec);
 }
 
 void Form::beSigned(Bureaucrat &br)
 {
+	if (this == (Form*)NULL)
+	{
+		std::cout << BOLD_Bright_Red << "Form not found\n" << Color_CLEAR;
+		return ; 
+	}
 	if (br.getGrade() <= this->grade_sign && !this->signature)
 	{
 		br.signForm(*this, 1);
@@ -89,6 +119,9 @@ void Form::beSigned(Bureaucrat &br)
 
 std::ostream &operator<<( std::ostream &output, const Form &X )
 {
-	output << "[" << X.getName() << "] form with target '"<< X.getTarget() <<"' (sign grade: " << X.getGrade_sign() << " and execute grade: " << X.getGrade_exec() << ")";
+	if (&X == (Form*)NULL)
+		std::cout << BOLD_Bright_Red << "Form not found\n" << Color_CLEAR;
+	else	
+		output << "[" << X.getName() << "] form with target '"<< X.getTarget() <<"' (sign grade: " << X.getGrade_sign() << " and execute grade: " << X.getGrade_exec() << ")";
 	return (output);
 }
