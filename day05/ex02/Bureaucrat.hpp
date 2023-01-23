@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:48 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 18:54:03 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 08:12:41 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,43 @@
 # define	_BR_HPP
 # include	<iostream>
 # include 	"Form.hpp"
+
+class Form;
+class Bureaucrat
+{
+	private:
+		const std::string	name;
+		unsigned int		grade;
+	public:
+		class GradeTooHighException: public std::exception
+		{
+			const char* what() const throw()
+			{
+				return ("Grade Too High!");
+			}
+		}; 
+		class GradeTooLowException: public std::exception
+		{
+			const char* what() const throw()
+			{
+				return ("Grade Too Low!");
+			}
+		};
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		Bureaucrat(Bureaucrat const &old);
+		Bureaucrat &operator=(const Bureaucrat &old);
+		~Bureaucrat();
+		std::string getName() const;
+		unsigned int getGrade() const;
+		void setGrade(unsigned int new_grade);
+		void increment();
+		void decrement();
+		void signForm(Form const &form, bool status);
+		void executeForm(Form const &form);
+};
+
+std::ostream &operator<<( std::ostream &output, const Bureaucrat &X );
 
 # define Color_CLEAR			"\033[0m"
 
@@ -52,42 +89,5 @@
 # define BOLD_Matte_Magenta		"\033[1;35m"
 # define BOLD_Matte_Cyan		"\033[1;36m"
 # define BOLD_Matte_White		"\033[1;37m"
-
-class Form;
-class Bureaucrat
-{
-	private:
-		const std::string	name;
-		unsigned int		grade;
-	public:
-		class GradeTooHighException: public std::exception
-		{
-			const char* what() const throw()
-			{
-				return ("Grade Too High!");
-			}
-		}; 
-		class GradeTooLowException: public std::exception
-		{
-			const char* what() const throw()
-			{
-				return ("Grade Too Low!");
-			}
-		};
-		Bureaucrat();
-		Bureaucrat(std::string name, int grade);
-		Bureaucrat(Bureaucrat const &old);
-		Bureaucrat &operator=(const Bureaucrat &old);
-		~Bureaucrat();
-		std::string getName() const;
-		unsigned int getGrade() const;
-		void setGrade(unsigned int new_grade);
-		void increment();
-		void decrement();
-		void signForm(Form const &form, bool status);
-		void executeForm(Form const &form);
-};
-
-std::ostream &operator<<( std::ostream &output, const Bureaucrat &X );
 
 #endif

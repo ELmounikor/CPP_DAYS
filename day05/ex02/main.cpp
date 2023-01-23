@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:45:49 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 21:07:39 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 08:43:45 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ int man()
 		F1->beSigned(A);
 		F3->beSigned(B);
 		F2->beSigned(A);
-		A.executeForm(*F3);
-		B.executeForm(*F1);
-		A.executeForm(*F3);
+		B.executeForm(*F1);	
 		B.executeForm(*F2);
+		A.executeForm(*F3);
 	}
     catch(const std::exception& e)
     {

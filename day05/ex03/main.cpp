@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:45:49 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 21:13:34 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 08:41:11 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int man()
 {
-	Form *F1 = new PresidentialPardonForm("Mounia");
-	Form *F2 = new RobotomyRequestForm("Mounia");
-	Form *F3 = new ShrubberyCreationForm("Mounia");
+	Intern si_brahim;
+	Form *F1 = si_brahim.makeForm("shrubbery creation", "the target");
+	Form *F2 = si_brahim.makeForm("robotomy request", "the target");
+	Form *F3 = si_brahim.makeForm("presidential pardon", "the target");
+	Form *F4 = si_brahim.makeForm("Chi tkhrbi9a", "the target");
 	try
 	{
 		Bureaucrat A("bob", 1);
@@ -37,6 +39,7 @@ int man()
 	delete F1;
 	delete F2;
 	delete F3;
+	delete F4;
 	return 0;
 }
 
