@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:45:49 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 13:39:27 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 09:55:37 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ int man()
 	{
 		Bureaucrat A("bob", 2);
 		Bureaucrat B("alice", 1);
-		Form C("alliance with btc", 1, 2);
+		Form C("pardon", 1, 2);
 		
 		C.beSigned(B);
-		C.beSigned(B);
-		C.beSigned(A);
 		C.beSigned(A);
 	}
     catch(const std::exception& e)

@@ -6,11 +6,11 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/20 11:41:55 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/23 08:24:36 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/23 09:12:18 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= bureaucrat
+NAME		= intern
 SRCS		= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 INCS		= Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
 OBJS		= ${SRCS:.cpp=.o}

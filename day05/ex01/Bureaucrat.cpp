@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:44 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/22 18:49:57 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 09:46:20 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void Bureaucrat::signForm(Form const &form, bool status)
 		std::cout << SIMPLE_Bright_Yellow << *this << " signed " << form  << Color_CLEAR << std::endl;
 	else
 	{
-		std::cout << SIMPLE_Matte_Yellow << *this << " couldn’t sign " << form << " because of the following reasons:\n";
+		std::cout << SIMPLE_Matte_Yellow << *this << " couldn’t sign " << form << " because:\n";
 		if (form.getSignatureState())
 			std::cout << SIMPLE_Matte_Yellow << " - It's is already signed" << Color_CLEAR << std::endl;
 		if (this->grade > form.getGrade_sign())

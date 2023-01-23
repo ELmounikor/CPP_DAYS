@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:45:49 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/21 19:56:34 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 09:32:35 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ int man()
 		B = new Bureaucrat("alice", 150);
 		
 		A->decrement();
+		std::cout << *A << std::endl;
 		B->increment();
+		std::cout << *B << std::endl;
 		mounia.increment();
+		std::cout << mounia << std::endl;
 	}
     catch(const std::exception& e)
     {

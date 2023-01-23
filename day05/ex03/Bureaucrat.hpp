@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:48 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/23 08:12:21 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:08:25 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Bureaucrat
 			{
 				return ("Grade Too High!");
 			}
-		}; 
+		};
 		class GradeTooLowException: public std::exception
 		{
 			const char* what() const throw()
