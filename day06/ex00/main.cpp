@@ -6,19 +6,19 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:16:23 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/24 15:22:20 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/24 15:39:27 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "header.hpp"
-# include	<iostream>
+# include <iostream>
 # include <limits.h>
 
 void print_char(double value)
 {
 	if (value >= 32 && value <= 127)
 		std::cout << "char: " << static_cast<char>(value) << std::endl;
-	else if (value >= INT_MIN && value <= INT_MAX)
+	else if (value >= CHAR_MIN && value <= CHAR_MAX)
 		std::cout << "char: " << "Non displayable" << std::endl;
 	else
 		std::cout << "char: " << "impossible" << std::endl;
@@ -34,15 +34,15 @@ void print_int(double value)
 
 void print_float_nd_double(double value)
 {
-	std::cout << "float: " << static_cast<float>(value)  << (value == static_cast<int>(value) ? ".0" : "") << 'f' << std::endl;
-	std::cout << "double: " << static_cast<double>(value) << (value == static_cast<int>(value) ? ".0" : "") << std::endl;
+	std::cout << "float: " << static_cast<float>(value)  << (value < 1000000 && value == static_cast<int>(value) ? ".0" : "") << "f"<< std::endl;
+	std::cout << "double: " << value << (value < 1000000 && (value == value) ? ".0" : "") << std::endl;
 }
 
 int is_numerical(std::string input)
 {
 	unsigned long i = 0;
 	
-	if (input[i] == '-' && i + 1 < input.length() && input[i + 1] >= '0' && input[i + 1] <= '9')
+	if ((input[i] == '-' || input[i] == '+') && i + 1 < input.length() && input[i + 1] >= '0' && input[i + 1] <= '9')
 		i++;
 	while (i < input.length() && input[i] >= '0' && input[i] <= '9')
 		i++;
@@ -76,13 +76,13 @@ int is_numerical(std::string input)
 double double_conv(std::string input, int type)
 {
 	if (type == 3 || type == 1)
-		return (std::stod(input));
+		return (std::stold(input));
 	else if (type == 2)
 	{
 		input[input.length() - 1] = 0;
-		return (std::stod(input));
+		return (std::stold(input));
 	}
-	return (static_cast<int>(input[0]));
+	return (static_cast<double>(input[0]));
 }
 
 int main(int ac, char **av)
