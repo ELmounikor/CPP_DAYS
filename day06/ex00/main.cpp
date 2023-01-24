@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:16:23 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/24 16:06:40 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:39:31 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int is_numerical(std::string input)
 		i++;
 	while (i < input.length() && input[i] >= '0' && input[i] <= '9')
 		i++;
-	if (i < input.length())
-	{
+	if (i < input.length()){
 		if (input[i++] == '.')
 		{
 			if (i < input.length() && input[i] >= '0' && input[i] <= '9')
@@ -48,15 +47,10 @@ int is_numerical(std::string input)
 	return (1);
 }
 
-double double_conv(std::string input, int type)
+double double_conv(char *input, int type)
 {
-	if (type == 3 || type == 1)
-		return (std::strtod(input.c_str(), NULL));
-	else if (type == 2)
-	{
-		input[input.length() - 1] = 0;
-		return (std::strtod(input.c_str(), NULL));
-	}
+	if (type == 1 || type == 2 || type == 3)
+		return (std::strtod(input, NULL));
 	return (static_cast<double>(input[0]));
 }
 
@@ -81,7 +75,7 @@ void print_int(double value)
 void print_float_nd_double(double value)
 {
 	std::cout << "float: " << static_cast<float>(value)  << (value < 1000000 && value == static_cast<int>(value) ? ".0" : "") << "f"<< std::endl;
-	std::cout << "double: " << value << (value < 1000000 && (value == static_cast<int>(value)) ? ".0" : "") << std::endl;
+	std::cout << "double: " << value << (value < 1000000 && value == static_cast<int>(value) ? ".0" : "") << std::endl;
 }
 
 int main(int ac, char **av)
@@ -109,7 +103,7 @@ int main(int ac, char **av)
 			std::cout << "double: " << "impossible" << std::endl;
 			return (0);
 		}
-		double value = double_conv(input, type);
+		double value = double_conv(av[1], type);
 		print_char(value);
 		print_int(value);
 		print_float_nd_double(value);
