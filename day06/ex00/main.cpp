@@ -6,37 +6,12 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:16:23 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/24 15:39:27 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:06:40 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "header.hpp"
 # include <iostream>
 # include <limits.h>
-
-void print_char(double value)
-{
-	if (value >= 32 && value <= 127)
-		std::cout << "char: " << static_cast<char>(value) << std::endl;
-	else if (value >= CHAR_MIN && value <= CHAR_MAX)
-		std::cout << "char: " << "Non displayable" << std::endl;
-	else
-		std::cout << "char: " << "impossible" << std::endl;
-}
-
-void print_int(double value)
-{
-	if (value >= INT_MIN && value <= INT_MAX)
-		std::cout << "int: " << static_cast<int>(value) << std::endl;
-	else
-		std::cout << "int: " << "impossible" << std::endl;
-}
-
-void print_float_nd_double(double value)
-{
-	std::cout << "float: " << static_cast<float>(value)  << (value < 1000000 && value == static_cast<int>(value) ? ".0" : "") << "f"<< std::endl;
-	std::cout << "double: " << value << (value < 1000000 && (value == value) ? ".0" : "") << std::endl;
-}
 
 int is_numerical(std::string input)
 {
@@ -76,13 +51,37 @@ int is_numerical(std::string input)
 double double_conv(std::string input, int type)
 {
 	if (type == 3 || type == 1)
-		return (std::stold(input));
+		return (std::strtod(input.c_str(), NULL));
 	else if (type == 2)
 	{
 		input[input.length() - 1] = 0;
-		return (std::stold(input));
+		return (std::strtod(input.c_str(), NULL));
 	}
 	return (static_cast<double>(input[0]));
+}
+
+void print_char(double value)
+{
+	if (value >= 32 && value <= 127)
+		std::cout << "char: " << static_cast<char>(value) << std::endl;
+	else if (value >= CHAR_MIN && value <= CHAR_MAX)
+		std::cout << "char: " << "Non displayable" << std::endl;
+	else
+		std::cout << "char: " << "impossible" << std::endl;
+}
+
+void print_int(double value)
+{
+	if (value >= INT_MIN && value <= INT_MAX)
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
+	else
+		std::cout << "int: " << "impossible" << std::endl;
+}
+
+void print_float_nd_double(double value)
+{
+	std::cout << "float: " << static_cast<float>(value)  << (value < 1000000 && value == static_cast<int>(value) ? ".0" : "") << "f"<< std::endl;
+	std::cout << "double: " << value << (value < 1000000 && (value == static_cast<int>(value)) ? ".0" : "") << std::endl;
 }
 
 int main(int ac, char **av)
@@ -92,15 +91,15 @@ int main(int ac, char **av)
 		std::string input = av[1];
 		if (input.length() == 0)
 		{
-			std::cout << BOLD_Bright_Red << "Nothing to convert\n" << Color_CLEAR;
+			std::cout << "\033[1;91m" << "Nothing to convert\n" << "\033[0m";
 			return (1);
 		}
 		int type = is_numerical(input);
-		if (input == "-inff" || input == "+inff" || input == "nanf")
+		if (!type && (input == "-inff" || input == "+inff" || input == "inff" || input == "nanf"))
 			type = 2;
-		else if (input == "-inf" || input == "+inf" || input == "nan")
+		else if (!type && (input == "-inf" || input == "+inf" || input == "inf" || input == "nan"))
 			type = 3;
-		else if (input.length() == 1)
+		else if (!type &&(input.length() == 1))
 			type = 4;
 		else if (!type)
 		{
@@ -116,7 +115,7 @@ int main(int ac, char **av)
 		print_float_nd_double(value);
 	}
 	else
-		std::cout << BOLD_Bright_Red << "Either too little or too much arguments\n" << Color_CLEAR;
+		std::cout << "\033[1;91m" << "Either too little or too much arguments\n" << "\033[0m";
 	return 1;
 }
 			
