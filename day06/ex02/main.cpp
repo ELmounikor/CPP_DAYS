@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:06:03 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/25 15:45:15 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:54:53 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,35 +42,30 @@ void identify(Base* p)
     else if (dynamic_cast<C*>(p))
         std::cout << "C\n";
     else
-        std::cout << "another type (an ordinary Base or NULL maybe)\n";
+        std::cout << "another type (an ordinary Base maybe)\n";
 }
 
 void identify(Base& p)
 {
     Base tmp;
-    // if (&p == (Base*)NULL)
-    // {
-    //     std::cout << "NULL?! Why would you check that!";
-    //     return ;
-    // }
     try
     {
         tmp = dynamic_cast<A&>(p);
         std::cout << "A\n";
         return ;
-    } catch(std::bad_cast exp){
+    } catch(...){
         try
         {
             tmp = dynamic_cast<B&>(p);
             std::cout << "B\n";
             return ; 
-        }catch(std::bad_cast exp){
+        }catch(...){
             try
             {
                 tmp = dynamic_cast<C&>(p);
                 std::cout << "C\n";
                 return ;
-            } catch(std::bad_cast exp){}
+            } catch(...){}
             std::cout << "another type (an ordinary Base maybe)\n";
         }
     }

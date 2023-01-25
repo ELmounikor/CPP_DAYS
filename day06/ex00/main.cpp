@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:16:23 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/24 16:39:31 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/25 16:31:51 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ int is_numerical(std::string input)
 {
 	unsigned long i = 0;
 	
+	while (i < input.length() && isspace(input[i]))
+		i++;
+	if (i == input.length())
+		return(0);
 	if ((input[i] == '-' || input[i] == '+') && i + 1 < input.length() && input[i + 1] >= '0' && input[i + 1] <= '9')
 		i++;
 	while (i < input.length() && input[i] >= '0' && input[i] <= '9')
