@@ -6,13 +6,13 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 13:10:11 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/25 13:35:48 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/25 13:38:58 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= identify
 SRCS		= main.cpp 
-INCS		= A.hpp B.hpp C.hpp Base.cpp
+INCS		= A.hpp B.hpp C.hpp Base.hpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
