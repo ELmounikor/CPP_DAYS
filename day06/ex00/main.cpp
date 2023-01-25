@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:16:23 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/25 16:55:35 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:02:50 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void print_char(double value)
 {
 	if (value >= 32 && value <= 127)
 		std::cout << "char: " << static_cast<char>(value) << std::endl;
-	else if (value >= CHAR_MIN && value <= CHAR_MAX)
+	else if (value >= CHAR_MIN && value <= 255)
 		std::cout << "char: " << "Non displayable" << std::endl;
 	else
 		std::cout << "char: " << "impossible" << std::endl;
