@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 21:15:21 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/26 23:26:17 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/26 23:29:56 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ int man()
 int main()
 {
 	man();
-	system("leaks Array");
+	// system("leaks Array");
 }
