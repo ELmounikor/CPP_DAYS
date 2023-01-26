@@ -6,7 +6,21 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 20:43:30 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/25 20:43:31 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:30:53 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "iter.hpp"
+
+void    double_it(int &i)
+{
+    i *= 2;
+}
+
+int main()
+{
+    int array[] = {1, 2, 3, 4, 5, 6, 7};
+    print_me(array, 7);
+    ::iter(array, 7, &double_it);
+    print_me(array, 7);
+}

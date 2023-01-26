@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:16:23 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/25 17:02:50 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/26 16:33:15 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void print_int(double value)
 
 void print_float_nd_double(double value)
 {
-	std::cout << "float: " << static_cast<float>(value)  << (value < 1000000 && value == static_cast<int>(value) ? ".0" : "") << "f"<< std::endl;
-	std::cout << "double: " << value << (value < 1000000 && value == static_cast<int>(value) ? ".0" : "") << std::endl;
+	std::cout << "float: " << static_cast<float>(value)  << (value < 1000000 && value > -1000000 && value == static_cast<int>(value) ? ".0" : "") << "f"<< std::endl;
+	std::cout << "double: " << value << (value < 1000000 && value > -1000000 && value == static_cast<int>(value) ? ".0" : "") << std::endl;
 }
 
 int main(int ac, char **av)
