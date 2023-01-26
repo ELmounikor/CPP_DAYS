@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/23 13:10:11 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/26 21:51:07 by mel-kora         ###   ########.fr        #
+#    Created: 2023/01/26 21:13:51 by mel-kora          #+#    #+#              #
+#    Updated: 2023/01/26 21:53:03 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Iter
+NAME		= Array
 SRCS		= main.cpp 
-INCS		= iter.hpp
+INCS		= Array.hpp Array.tpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address

@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:16:23 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/26 16:33:15 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/26 23:15:25 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ double double_conv(char *input, int type)
 void print_char(double value)
 {
 	if (value >= 32 && value <= 127)
-		std::cout << "char: " << static_cast<char>(value) << std::endl;
+		std::cout << "char: '" << static_cast<char>(value) << "'\n";
 	else if (value >= CHAR_MIN && value <= 255)
 		std::cout << "char: " << "Non displayable" << std::endl;
 	else

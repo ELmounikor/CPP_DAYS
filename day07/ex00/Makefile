@@ -6,11 +6,11 @@
 #    By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 13:10:11 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/25 19:44:54 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/01/26 21:14:46 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= whatever
+NAME		= Whatever
 SRCS		= main.cpp
 INCS		= whatever.hpp
 OBJS		= ${SRCS:.cpp=.o}
