@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:06:03 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/25 16:54:53 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:01:56 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void identify(Base* p)
 void identify(Base& p)
 {
     Base tmp;
+
     try
     {
         tmp = dynamic_cast<A&>(p);
@@ -71,10 +72,32 @@ void identify(Base& p)
     }
 }
 
+// class H {
+//     public:
+//         virtual ~H(){}
+// };
+
+// class E : public H {};
+
+// class O {
+//     public:
+//         virtual ~O(){}
+// };
+
 int main()
 {
     Base *Unknown = generate();
     identify(Unknown);
     identify(*Unknown);
     delete Unknown;
+
+
+    // E *h = new E;
+    // // O e;
+
+    // if (dynamic_cast<E*>(h))
+    //     std::cout << "SUCCESS" << std::endl;
+    // else
+    //     std::cout << "FAILED" << std::endl;
+
 }
