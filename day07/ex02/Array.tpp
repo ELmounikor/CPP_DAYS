@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 21:52:49 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/27 00:16:15 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/27 14:01:30 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _ARRAY_TPP
 # define _ARRAY_TPP
 #include "Array.hpp"
-
 
 template <typename T> Array<T>::Array()
 {
@@ -77,7 +76,7 @@ class Array<T>::IndexIsOutOfBounds: public std::exception
 {
 	const char* what() const throw()
 	{
-		return ("Index Is Out Of Bounds!");
+		return ("\033[1;91mIndex Is Out Of Bounds!\033[0m");
 	}
 };
 

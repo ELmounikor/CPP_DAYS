@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 21:16:07 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/26 23:04:26 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/27 13:59:48 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ class Array
 		class  IndexIsOutOfBounds;
 };
 
-template <class T> void print_me(T *array, unsigned long length)
+template <class T> void print_me(T *array, unsigned int length)
 {
-	for (unsigned long i = 0 ; i < length ; i++)
+	for (unsigned int i = 0 ; i < length ; i++)
 		std::cout << array[i] << "\t"; 
 	std::cout << std::endl;
 }
