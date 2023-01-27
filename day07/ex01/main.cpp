@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-kora <mel-kora@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 20:43:30 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/01/26 23:24:30 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/01/27 18:50:06 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,35 @@ int main()
     std::string array3[] = {"salam", "labas", "Bikhir"};
     ::iter(array3, 3, &print_it);
 }
+
+// using namespace std;
+
+// template <class T>
+// void print_that(T size)
+// {
+//       cout << size;
+// }
+ 
+// template <class T>
+// void sort(T arr[], int size)
+// {
+//     for (int i = 0; i < size; i++)
+//       cout << arr[i];
+// }
+ 
+// template <>
+// void sort<char>(char arr[], int size)
+// {
+//     for (int i = size - 1 ; i >=0 ; i--)
+//       cout << arr[i];
+// }
+
+// int main() {
+//   int array1[] = {1, 2, 3, 4, 5, 6, 7};
+//     sort(array1, 7);
+//     std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
+//     char array2[] = {'a', 'b', 'c', 'd', 'e'};
+//     sort(array2, 5);
+//     ::iter(array2, 5, &print_that);
+//   return 0;
+// }
