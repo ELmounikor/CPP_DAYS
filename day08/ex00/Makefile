@@ -5,32 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/26 21:13:51 by mel-kora          #+#    #+#              #
-#    Updated: 2023/01/27 19:10:16 by mel-kora         ###   ########.fr        #
+#    Created: 2023/01/28 17:58:52 by mel-kora          #+#    #+#              #
+#    Updated: 2023/01/30 16:54:59 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Array
-SRCS		= main.cpp 
+NAME		= Easyfind
 INCS		= easyfind.hpp
+SRCS		= main.cpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
 RM			= @rm -rf
-	
-%.o : %.cpp $(INCS)
+CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
+
+.cpp.o:		$(INCS)
 			$(CC) $(CPPFLAGS) -c $< -o $@
 
-all: 		$(NAME)
+all:		$(NAME)
 			@echo "\033[1;95m	<< all done! >> \033[0m"
 
 $(NAME):	$(INCS) $(OBJS)
-			
-			${CC} ${CPPFLAGS} ${OBJS} -o $(NAME)
+			$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 			@echo "\033[1;96m	----> files created \033[0m"
-
+	
 clean:
-			${RM} ${OBJS} 
+			$(RM) $(OBJS)
 			@echo "\033[1;94m	----> files deleted \033[0m"
 
 fclean:		clean
@@ -38,4 +37,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: all clean fclean re
