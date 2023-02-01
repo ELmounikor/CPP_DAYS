@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:08:45 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/01 11:37:26 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:16:59 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ Span::Span()
 Span::Span( const Span & src )
 {
 	this->N = src.N;
-	// std::copy(src.elements.begin(), src.elements.end(), this->elements.begin());
+	std:s:copy(src.elements.begin(), src.elements.end(), this->elements.begin());
+	// std::vector<const int>::iterator i;
+	// for (i = src.elements.begin(); i < src.elements.end(); i++)
+	// 	this->addNumber(*i);
 }
 
 Span::Span(unsigned int N): N(N)
@@ -63,12 +66,16 @@ Span::~Span()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Span &Span::operator=( Span const & rhs )
+Span &Span::operator=( Span const & old )
 {
-	if (this != &rhs)
+	if (this != &old)
 	{
-		this->N = rhs.N;
-		// std::copy(rhs.elements.begin(), rhs.elements.end(), this->elements.begin());
+		this->N = old.N;
+		std::copy(old.elements.begin(), old.elements.end(), this->elements.begin());
+		// elements.resize(0);
+		// std::vector<const int>::iterator i;
+		// for (i = old.elements.begin(); i < old.elements.end(); i++)
+		// 	this->addNumber(*i);
 	}
 	return *this;
 }
