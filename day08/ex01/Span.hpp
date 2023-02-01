@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:08:50 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/01 12:34:03 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/01 15:14:31 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Span
 		Span( Span const & src );
 		Span(unsigned int N);
 		~Span();
-		Span &operator=( Span const & rhs );
+		Span &operator=( Span & rhs );
 		void addNumber(int to_add);
 		void addNumber(unsigned int range, int maxvalue);
 		int shortestSpan();

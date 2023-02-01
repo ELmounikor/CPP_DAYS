@@ -1,0 +1,70 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MutantStack.tpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/01 14:44:14 by mel-kora          #+#    #+#             */
+/*   Updated: 2023/02/01 16:59:54 by mel-kora         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "MutantStack.hpp"
+
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+template <typename T>
+MutantStack<T>::MutantStack()
+{
+}
+
+template <typename T>
+MutantStack<T>::MutantStack( const MutantStack & src )
+{
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
+template <typename T>
+MutantStack<T>::~MutantStack()
+{
+}
+
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+template <typename T>
+MutantStack &MutantStack<T>::operator=( MutantStack const & rhs )
+{
+	//if ( this != &rhs )
+	//{
+		//this->_value = rhs.getValue();
+	//}
+	return *this;
+}
+
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
+
+template <typename T>
+typename MutantStack<T>::iterator	MutantStack<T>::begin()
+{
+	return(this->c.begin());
+}
+
+template <typename T>
+typename MutantStack<T>::iterator	MutantStack<T>::end()
+{
+	return(this->c.end());
+}
+
+/* ************************************************************************** */

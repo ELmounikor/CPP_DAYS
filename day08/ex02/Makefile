@@ -6,13 +6,13 @@
 #    By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 17:58:52 by mel-kora          #+#    #+#              #
-#    Updated: 2023/02/01 11:42:08 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/02/01 15:22:47 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= MutantStack
-INCS		= MutantStack.hpp
-SRCS		= main.cpp MutantStack.cpp
+INCS		= MutantStack.hpp MutantStack.tpp
+SRCS		= main.cpp 
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
 RM			= @rm -rf
