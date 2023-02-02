@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:08:50 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/02 18:11:21 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/02 22:11:54 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,25 @@ class Span
 		Span(unsigned int N);
 		~Span();
 		Span &operator=( Span const &rhs );
-		void addNumber(int to_add);
-		// void addNumber(unsigned int range, int maxvalue);
-		template <typename T> void addNumber(T start, T end);
 		int shortestSpan();
 		int longestSpan();
 		void print();
 		class NotEnoughElements;
 		class NoMoreSpaceLeft;
 		class OverflowRisk;
+		void addNumber(long long to_add);
+		template <typename T> void addNumber(T start, T end);
+		template <>void addNumber<int>(int range, int maxvalue)
+		{
+			if (range > INT_MAX || range < 0 || maxvalue > INT_MAX || maxvalue < INT_MIN)
+				throw std::exception();
+			srand(time(NULL));
+			for (int i = 0; i < range; i++)
+			{
+				const int value = rand() % (maxvalue + 1);
+				this->addNumber(value);
+			}
+		}
 };
 
 /*
@@ -62,7 +72,7 @@ class Span::OverflowRisk: public std::exception
 {
 	const char* what() const throw()
 	{
-		return ("\033[1;91mOverflow Risk!\033[0m");
+		return ("\033[1;91mOverflow Risk! only int values please..\033[0m");
 	}
 };
 
@@ -73,21 +83,10 @@ class Span::OverflowRisk: public std::exception
 template <class T>
 void Span::addNumber(T start, T end)
 {
-	std::vector<const int>::iterator i;
+	T i;
 	for (i = start; i < end; i++)
 		this->addNumber(*i);
 }
 
-template <>
-void Span::addNumber(unsigned int range, unsigned int maxval)
-{
-	
-	srand(time(NULL));
-	for (unsigned int i = 0; i < range; i++)
-	{
-		const unsigned int value = rand() % (maxval + 1);
-		this->addNumber(value);
-	}
-}
 
 #endif /* ************************************************************ SPAN_H */

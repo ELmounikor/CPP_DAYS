@@ -6,14 +6,12 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:08:45 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/02 18:07:47 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/02 22:11:14 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include "limits.h"
-
-
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -59,7 +57,7 @@ Span &Span::operator=( Span const & old )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void Span::addNumber(int to_add)
+void Span::addNumber(long long to_add)
 {
 	if (this->elements.size() == N)
 		throw NoMoreSpaceLeft();

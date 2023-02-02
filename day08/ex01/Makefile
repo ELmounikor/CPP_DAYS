@@ -6,7 +6,7 @@
 #    By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 17:58:52 by mel-kora          #+#    #+#              #
-#    Updated: 2023/02/02 18:11:36 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/02/02 21:52:38 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
 all:		$(NAME)
 			@echo "\033[1;95m	<< all done! >> \033[0m"
 
-$(NAME):	$(INCS) $(OBJS)
+$(NAME):	$(OBJS)
 			$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 			@echo "\033[1;96m	----> files created \033[0m"
 	
