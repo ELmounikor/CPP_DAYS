@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:08:45 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/02 13:06:33 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:44:56 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ Span::Span( const Span & src )
 {
 	this->N = src.N;
 	std::copy(src.elements.begin(), src.elements.end(), this->elements.begin());
-	// std::vector<const int>::iterator i;
-	// for (i = src.elements.begin(); i < src.elements.end(); i++)
-	// 	this->addNumber(*i);
 }
 
 Span::Span(unsigned int N): N(N), elements(0)
@@ -72,10 +69,6 @@ Span &Span::operator=( Span const & old )
 	{
 		this->N = old.N;
 		std::copy(old.elements.begin(), old.elements.end(), this->elements.begin());
-		// elements.resize(0);
-		// std::vector<const int>::iterator i;
-		// for (i = old.elements.begin(); i < old.elements.end(); i++)
-		// 	this->addNumber(*i);
 	}
 	return *this;
 }

@@ -6,11 +6,12 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:22:40 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/02 15:35:21 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:56:09 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.tpp"
+
 int	main()
 {
 	MutantStack<int> mstack;
