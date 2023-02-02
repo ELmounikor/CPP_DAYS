@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 21:52:49 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/02 14:49:25 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:22:38 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ template <typename T> Array<T>::Array()
 template <typename T> Array<T>::Array(unsigned int N)
 {
 	this->num_of_elements = N;
-	this->elements = new T[N];
-	T  *tmp = new T();
-	for (unsigned int i = 0 ; i < N ; i++)
-		this->elements[i] = *tmp;
-	delete tmp;
+	this->elements = new T[N]();
+	// T  *tmp = new T();
+	// for (unsigned int i = 0 ; i < N ; i++)
+	// 	this->elements[i] = *tmp;
+	// delete tmp;
 }
 
 template <typename T> Array<T>::Array(Array<T> const &old)

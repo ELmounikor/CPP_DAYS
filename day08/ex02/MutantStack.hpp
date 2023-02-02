@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 14:44:10 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/02 15:17:51 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:28:36 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class MutantStack: public std::stack<T>
 	public:
 		typedef typename std::deque<T>::iterator iterator;
 		typedef typename std::deque<T>::const_iterator const_iterator;
-		typename MutantStack<T>::iterator begin();
-		typename MutantStack<T>::iterator end();
+		iterator begin();
+		iterator end();
 		MutantStack();
 		MutantStack( MutantStack<T> const &src );
 		~MutantStack();

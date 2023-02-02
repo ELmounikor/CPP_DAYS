@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:22:40 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/02 15:15:22 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:35:21 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,20 @@ int	main()
 		++it;
 	}
 	std::stack<int> s(mstack);
+	--it;
+	// std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
 	// MutantStack<int> mstack_copy(mstack);
+	// std::cout << "size of mstack_copy: " << mstack_copy.size() << std::endl;
+	// std::cout << "size of mstack: " << mstack.size() << std::endl;
 	// it = mstack_copy.begin();
 	// ite = mstack_copy.end();
 	// ++it;
-	// --it;
-	// std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
 	// while (it != ite)
 	// {
 	// 	std::cout << *it << std::endl;
 	// 	mstack.pop();
 	// 	++it;
 	// }
-	// std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
 	// std::cout << "size of mstack_copy: " << mstack_copy.size() << std::endl;
 	// std::cout << "size of mstack: " << mstack.size() << std::endl;
 	// std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
@@ -70,15 +71,14 @@ int	main()
 	// ite = mstack_copy.end();
 	// ++it;
 	// --it;
-	// std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
 	// while (it != ite)
 	// {
 	// 	std::cout << *it << std::endl;
 	// 	mstack.pop();
 	// 	++it;
 	// }
-	// std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
 	// std::cout << "size of mstack_copy: " << mstack_copy.size() << std::endl;
 	// std::cout << "size of mstack: " << mstack.size() << std::endl;
+	// std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
 	return 0;
 }
