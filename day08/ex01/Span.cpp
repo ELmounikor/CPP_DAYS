@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:08:45 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/01 13:16:59 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/02 13:06:33 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,20 @@ class Span::NoMoreSpaceLeft: public std::exception
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Span::Span()
+Span::Span() : N(0), elements(0)
 {
 }
 
 Span::Span( const Span & src )
 {
 	this->N = src.N;
-	std:s:copy(src.elements.begin(), src.elements.end(), this->elements.begin());
+	std::copy(src.elements.begin(), src.elements.end(), this->elements.begin());
 	// std::vector<const int>::iterator i;
 	// for (i = src.elements.begin(); i < src.elements.end(); i++)
 	// 	this->addNumber(*i);
 }
 
-Span::Span(unsigned int N): N(N)
+Span::Span(unsigned int N): N(N), elements(0)
 {
 }
 
