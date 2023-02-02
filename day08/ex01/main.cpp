@@ -6,41 +6,76 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:22:40 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/01 11:37:21 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/02 17:23:04 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <limits>
+#include <deque>
+
 
 int main()
 {
-	Span sp = Span(5);
-	
-	sp.addNumber(6);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
-	std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
+	try
+	{
+		// Span sp = Span(5);
+		// sp.addNumber(6);
+		// sp.addNumber(3);
+		// sp.addNumber(17);
+		// sp.addNumber(9);
+		// sp.addNumber(11);
+		// std::cout << sp.shortestSpan() << std::endl;
+		// std::cout << sp.longestSpan() << std::endl;
+		// std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
 
-	Span sp2(750);
-	
-	sp2.addNumber(750, 1000);
-	std::cout << sp2.shortestSpan() << std::endl;
-	std::cout << sp2.longestSpan() << std::endl;
-	
-	std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
-	
-	Span sp3(500);
-	srand(time(NULL));
-    for (int i = 0; i < 500; i++)
-    {
-    	const int value = rand();
-		sp3.addNumber(value);
-    }
-	std::cout << sp3.shortestSpan() << std::endl;
-	std::cout << sp3.longestSpan() << std::endl;
+		// // Span sp2(750);
+		
+		// // sp2.addNumber(750, 1000);
+		// // std::cout << sp2.shortestSpan() << std::endl;
+		// // std::cout << sp2.longestSpan() << std::endl;
+		
+		// std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
+		
+		// Span sp3(500);
+		
+		// std::cout << sp3.shortestSpan() << std::endl;
+		// std::cout << sp3.longestSpan() << std::endl;
+
+		// std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
+		
+		Span sp4 = Span(26);
+		std::vector<int> elements1;
+		
+		srand(time(NULL));
+		for (int  i = 0; i < 26; i++)
+		{
+			long long value = rand() % LLONG_MAX *4;
+			elements1.push_back(value);
+		}
+		std::cout << (long long)(*(elements1.begin())) << std::endl;
+		sp4.addNumber(elements1.begin(), elements1.end());
+		std::cout << sp4.shortestSpan() << std::endl;
+		std::cout << sp4.longestSpan() << std::endl;
+		
+		std::cout << "\033[1;93m-----------------------------------------------------------\033[0m\n";
+		sp4.print();
+		// Span sp5 = Span(5);
+		// std::deque<int> elements2;
+		
+		// srand(time(NULL));
+		// for (int  i = 0; i < 5; i++)
+		// {
+		// 	const long long value = rand() % LLONG_MAX * 4;
+		// 	elements2.push_back(value);
+		// }
+		// sp5.addNumber(elements2.begin(), elements2.end());
+		// std::cout << sp5.shortestSpan() << std::endl;
+		// std::cout << sp5.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return 0;
 }

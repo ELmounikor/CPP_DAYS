@@ -6,32 +6,14 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 17:08:45 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/02/02 15:44:56 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:07:47 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include "limits.h"
 
-/*
-** --------------------------------- NESTED CLASSES ---------------------------------
-*/
 
-class Span::NotEnoughElements: public std::exception
-{
-	const char* what() const throw()
-	{
-		return ("\033[1;91mNot Enough Elements!\033[0m");
-	}
-};
-
-class Span::NoMoreSpaceLeft: public std::exception
-{
-	const char* what() const throw()
-	{
-		return("\033[1;91mNo More Space Left!\033[0m");
-	}
-};
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -81,18 +63,10 @@ void Span::addNumber(int to_add)
 {
 	if (this->elements.size() == N)
 		throw NoMoreSpaceLeft();
+	if (to_add > INT_MAX || to_add < INT_MIN)
+		throw OverflowRisk();
 	this->elements.push_back(to_add);
 	std::sort(elements.begin(), elements.end());
-}
-
-void Span::addNumber(unsigned int range, int maxval)
-{
-	srand(time(NULL));
-	for (unsigned int i = 0; i < range; i++)
-	{
-    	const int value = rand() % (maxval + 1);
-		this->addNumber(value);
-	}
 }
 
 int Span::shortestSpan()
@@ -119,12 +93,12 @@ int Span::longestSpan()
 	return (*(elements.end() - 1) - *(elements.begin()));
 }
 
-// void Span::print()
-// {
-// 	std::vector<int>::iterator i;
-// 	for (i = elements.begin() ; i < elements.end() ; i++)
-// 		std::cout << *i << "\t"; 
-// 	std::cout << std::endl;
-// }
+void Span::print()
+{
+	std::vector<int>::iterator i;
+	for (i = elements.begin() ; i < elements.end() ; i++)
+		std::cout << *i << "\t"; 
+	std::cout << std::endl;
+}
 
 /* ************************************************************************** */
