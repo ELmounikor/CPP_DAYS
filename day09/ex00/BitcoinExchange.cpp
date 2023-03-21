@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:45:03 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/21 09:52:36 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:30:26 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 double	to_double(char *input)
 {
 	unsigned long i = 0;
-	
+
 	if (!input)
-		return(-1);
+		return (-1);
 	while (input[i] && isspace(input[i]))
 		i++;
 	if (!input[i])
@@ -28,8 +28,9 @@ double	to_double(char *input)
 		i++;
 	if (input[i])
 	{
-		if (input[i++] == '.')
+		if (input[i] == '.' || input[i] == ',')
 		{
+			input[i++] = '.';
 			if (input[i] && input[i] >= '0' && input[i] <= '9')
 			{
 				while (input[i] && input[i] >= '0' && input[i] <= '9')
@@ -60,7 +61,7 @@ long long is_date(std::string input)
 	if (i < input.size())
 		return (0);
 	input = input.substr(0, 10);
-    if (strptime(input.c_str(), "%F", &tm))
+	if (strptime(input.c_str(), "%F", &tm))
 	{
 		if (tm.tm_mday != 0 && mktime(&tm) != -1)
 			return (tm.tm_mday + (tm.tm_mon + 1) * 100 + (tm.tm_year + 1900) * 10000);
@@ -71,7 +72,7 @@ long long is_date(std::string input)
 
 void	ft_exit(std::string msg)
 {
-	std::cout << msg << std::endl;
+	std::cout << msg << "\033[0m\n";
 	::exit(1);
 }
 
@@ -89,18 +90,18 @@ BitcoinExchange::BitcoinExchange()
 			char *input = strtok(NULL, ",");
 			double	value = to_double(input);
 			if (!date || ! input || strtok(NULL, ",") || line[line.size() - 1] == ',')
-				ft_exit("Bad input in in data.csv");
+				ft_exit("\033[0;91mBad input in in data.csv");
 			if (!is_date(date))
-				ft_exit("Invalid date in data.csv");
+				ft_exit("\033[0;91mInvalid date in data.csv");
 			if (value < 0)
-				ft_exit("Invalid price of btc in data.csv");
+				ft_exit("\033[0;91mInvalid price of btc in data.csv");
 			this->bitcoin_price[is_date(date)] = value;
 		}
 		if (this->bitcoin_price.size() == 0)
-			ft_exit("Database data.csv is empty");
+			ft_exit("\033[0;91mDatabase data.csv is empty");
 	}
 	else
-		ft_exit("Database data.csv is missing");
+		ft_exit("\033[0;91mDatabase data.csv is missing");
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &old): bitcoin_price(old.bitcoin_price)
@@ -125,28 +126,28 @@ void BitcoinExchange::convert(std::string file_name)
 
 	if (!file.is_open())
 	{
-        std::cout << "Error: could not open file.\n";
+		std::cout << "\033[0;91mError: could not open file.\033[0m\n";
 		return ;
 	}
-	std::getline(file, line);
+	// std::getline(file, line);
 	while (std::getline(file, line))
 	{
 		char	*date = strtok((char *)line.c_str(), "|");
 		char	*input = strtok(NULL, "|");
 		double	value = to_double(input);
 		if (!date || !input || strtok(NULL, "|") || line[line.size() - 1] == '|' || !is_date(date))
-			std::cout << "Error: bad input => " << line << std::endl;
+			std::cout << "\033[0;91mError: bad input => " << line << "\033[0m\n";
 		else if (value < 0)
-			std::cout << "Error: not a positive number." << std::endl;
+			std::cout << "\033[0;91mError: not a positive number.\033[0m\n";
 		else if (value > 1000)
-			std::cout << "Error: too large number." << std::endl;
+			std::cout << "\033[0;91mError: too large number.\033[0m\n";
 		else
 		{
 			std::map<long long, double>::iterator i = this->bitcoin_price.begin();
 			while (i != this->bitcoin_price.end() && is_date(date) > (*i).first)
 				i++;
 			if ((i == this->bitcoin_price.begin() && is_date(date) < (*i).first))
-				std::cout << "There was no price for btc at " << date << std::endl;
+				std::cout << "\033[0;91mThere was no price for btc on " << date << "\033[0m\n";
 			else if (i != this->bitcoin_price.end() && is_date(date) == (*i).first)
 				std::cout << date << "=> " << value << " = " << value * (*i).second << std::endl;
 			else

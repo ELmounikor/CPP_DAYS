@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 11:44:35 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/21 12:22:28 by mel-kora         ###   ########.fr       */
+/*   Created: 2023/03/21 11:35:19 by mel-kora          #+#    #+#             */
+/*   Updated: 2023/03/21 16:54:42 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#ifndef RPN_HPP
+# define RPN_HPP
+# include <iostream>
+# include <string>
+# include <list>
 
-int main(int ac, char **av)
+class RPN
 {
-	BitcoinExchange	btc;
-	
-	// btc.print_data();
-	if (ac == 1)
-		std::cout << "\033[0;91mError: could not open file.\n\033[0m";
-	else if  (ac == 2)
-		btc.convert(av[1]);
-	else
-		std::cout << "\033[0;91mError: too much arguments.\n\033[0m";
-}
+	private:
+		std::list<int> expression;
+		RPN();
+		RPN(RPN const &src);
+	public:
+		RPN(char *input);
+		~RPN();
+		RPN		&operator=(RPN const &rhs);
+		void	print_tokens();
+		int		calculate();
+};
+
+#endif
