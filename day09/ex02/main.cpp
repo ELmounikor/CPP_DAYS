@@ -6,7 +6,20 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:44:35 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/20 11:44:36 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:15:48 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PmergeMe.hpp"
+
+int main(int ac, char **av)
+{
+	if (ac > 1)
+	{
+		PmergeMe	pm(av);
+
+		pm.print_container1();
+		std::cout << "***************************************\n";
+		pm.print_container2();
+	}
+}

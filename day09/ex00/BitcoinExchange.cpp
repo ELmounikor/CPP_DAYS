@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:45:03 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/21 16:30:26 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:52:55 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ double	to_double(char *input)
 			}
 			return (-1);
 		}
+		while (input[i] && isspace(input[i]))
+			i++;
+		if (!input[i])
+			return (std::strtod(input, NULL));
 		return (-1);
 	}
 	return (std::strtod(input, NULL));
@@ -51,16 +55,19 @@ double	to_double(char *input)
 long long is_date(std::string input)
 {
 	unsigned long	i = 0;
+	unsigned long	j = 0;
 	struct tm		tm = {};
 	
-	if (input.size() < 10)
+	while (j < input.size() && isspace(input[j]))
+		j++;
+	if (input.size() - j < 10)
 		return (0);
-	i = 10;
+	i = j + 10;
 	while (i < input.size() && isspace(input[i]))
 		i++;
 	if (i < input.size())
 		return (0);
-	input = input.substr(0, 10);
+	input = input.substr(j, 10);
 	if (strptime(input.c_str(), "%F", &tm))
 	{
 		if (tm.tm_mday != 0 && mktime(&tm) != -1)
@@ -70,9 +77,19 @@ long long is_date(std::string input)
 	return (0);
 }
 
+std::string trim_spaces_from_date(std::string input)
+{
+	unsigned long	j = 0;
+	
+	while (j < input.size() && isspace(input[j]))
+		j++;
+	input = input.substr(j, 10);
+	return (input);
+}
+
 void	ft_exit(std::string msg)
 {
-	std::cout << msg << "\033[0m\n";
+	std::cout << "\033[0;91m" << msg << "\033[0m\n";
 	::exit(1);
 }
 
@@ -90,18 +107,18 @@ BitcoinExchange::BitcoinExchange()
 			char *input = strtok(NULL, ",");
 			double	value = to_double(input);
 			if (!date || ! input || strtok(NULL, ",") || line[line.size() - 1] == ',')
-				ft_exit("\033[0;91mBad input in in data.csv");
+				ft_exit("Bad input in in data.csv");
 			if (!is_date(date))
-				ft_exit("\033[0;91mInvalid date in data.csv");
+				ft_exit("Invalid date in data.csv");
 			if (value < 0)
-				ft_exit("\033[0;91mInvalid price of btc in data.csv");
+				ft_exit("Invalid price of btc in data.csv");
 			this->bitcoin_price[is_date(date)] = value;
 		}
 		if (this->bitcoin_price.size() == 0)
-			ft_exit("\033[0;91mDatabase data.csv is empty");
+			ft_exit("Database data.csv is empty");
 	}
 	else
-		ft_exit("\033[0;91mDatabase data.csv is missing");
+		ft_exit("Database data.csv is missing");
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &old): bitcoin_price(old.bitcoin_price)
@@ -147,11 +164,11 @@ void BitcoinExchange::convert(std::string file_name)
 			while (i != this->bitcoin_price.end() && is_date(date) > (*i).first)
 				i++;
 			if ((i == this->bitcoin_price.begin() && is_date(date) < (*i).first))
-				std::cout << "\033[0;91mThere was no price for btc on " << date << "\033[0m\n";
+				std::cout << "\033[0;91mThere was no price for btc on " << trim_spaces_from_date(date) << "\033[0m\n";
 			else if (i != this->bitcoin_price.end() && is_date(date) == (*i).first)
-				std::cout << date << "=> " << value << " = " << value * (*i).second << std::endl;
+				std::cout << trim_spaces_from_date(date) << " => " << value << " = " << value * (*i).second << std::endl;
 			else
-				std::cout << date << "=> " << value << " = " << value * (*(--i)).second << std::endl;
+				std::cout << trim_spaces_from_date(date) << " => " << value << " = " << value * (*(--i)).second << std::endl;
 		}
 	}
 }

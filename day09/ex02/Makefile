@@ -6,13 +6,13 @@
 #    By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 17:58:52 by mel-kora          #+#    #+#              #
-#    Updated: 2023/03/20 11:43:16 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/03/21 18:06:26 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= 
-INCS		= 
-SRCS		= main.cpp 
+NAME		= PmergeMe
+INCS		= PmergeMe.hpp
+SRCS		= main.cpp PmergeMe.cpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
 RM			= @rm -rf
