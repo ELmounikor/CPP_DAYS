@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:45:03 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/22 15:34:11 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:08:03 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ long long is_date(std::string input)
 	{
 		if (tm.tm_mday != 0 && mktime(&tm) != -1)
 			return (tm.tm_mday + (tm.tm_mon + 1) * 100 + (tm.tm_year + 1900) * 10000);
-		return (0);	
+		return (0);
 	}
 	return (0);
 }
@@ -83,14 +83,27 @@ std::string trim_spaces_from_date(std::string input)
 	
 	while (j < input.size() && isspace(input[j]))
 		j++;
-	input = input.substr(j, 10);
-	return (input);
+	return (input.substr(j, 10));
 }
 
 void	ft_exit(std::string msg)
 {
 	std::cout << "\033[0;91m" << msg << "\033[0m\n";
 	::exit(1);
+}
+
+void BitcoinExchange::handle_data_line(std::string line)
+{
+	char *date = strtok((char *)line.c_str(), ",");
+	char *input = strtok(NULL, ",");
+	double	value = to_double(input);
+	if (!date || ! input || strtok(NULL, ",") || line[line.size() - 1] == ',')
+		ft_exit("Bad input in in data.csv");
+	if (!is_date(date))
+		ft_exit("Invalid date in data.csv");
+	if (value < 0)
+		ft_exit("Invalid price of btc in data.csv");
+	this->btc_prices[is_date(date)] = value;
 }
 
 BitcoinExchange::BitcoinExchange()
@@ -101,19 +114,10 @@ BitcoinExchange::BitcoinExchange()
 	if (file.is_open())
 	{
 		std::getline(file, line);
+		if (line != "date,exchange_rate")
+			handle_data_line(line);
 		while (std::getline(file, line))
-		{
-			char *date = strtok((char *)line.c_str(), ",");
-			char *input = strtok(NULL, ",");
-			double	value = to_double(input);
-			if (!date || ! input || strtok(NULL, ",") || line[line.size() - 1] == ',')
-				ft_exit("Bad input in in data.csv");
-			if (!is_date(date))
-				ft_exit("Invalid date in data.csv");
-			if (value < 0)
-				ft_exit("Invalid price of btc in data.csv");
-			this->btc_prices[is_date(date)] = value;
-		}
+			handle_data_line(line);
 		if (this->btc_prices.size() == 0)
 			ft_exit("Database data.csv is empty");
 	}
@@ -136,6 +140,31 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &old)
 	return (*this);
 }
 
+void BitcoinExchange::handle_input_line(std::string line)
+{
+	char	*date = strtok((char *)line.c_str(), "|");
+	char	*input = strtok(NULL, "|");
+	double	value = to_double(input);
+	if (!date || !input || strtok(NULL, "|") || line[line.size() - 1] == '|' || !is_date(date))
+		std::cout << "\033[0;91mError: bad input => " << line << "\033[0m\n";
+	else if (value < 0)
+		std::cout << "\033[0;91mError: not a positive number.\033[0m\n";
+	else if (value > 1000)
+		std::cout << "\033[0;91mError: too large number.\033[0m\n";
+	else
+	{
+		std::map<long long, double>::iterator i = this->btc_prices.begin();
+		while (i != this->btc_prices.end() && is_date(date) > (*i).first)
+			i++;
+		if ((i == this->btc_prices.begin() && is_date(date) < (*i).first))
+			std::cout << "\033[0;91mThere was no price for btc on " << trim_spaces_from_date(date) << "\033[0m\n";
+		else if (i != this->btc_prices.end() && is_date(date) == (*i).first)
+			std::cout << trim_spaces_from_date(date) << " => " << value << " = " << value * (*i).second << std::endl;
+		else
+			std::cout << trim_spaces_from_date(date) << " => " << value << " = " << value * (*(--i)).second << std::endl;
+	}
+}
+
 void BitcoinExchange::convert(std::string file_name)
 {
 	std::ifstream	file(file_name);
@@ -147,30 +176,10 @@ void BitcoinExchange::convert(std::string file_name)
 		return ;
 	}
 	std::getline(file, line);
+	if (line != "date | value")
+		handle_input_line(line);
 	while (std::getline(file, line))
-	{
-		char	*date = strtok((char *)line.c_str(), "|");
-		char	*input = strtok(NULL, "|");
-		double	value = to_double(input);
-		if (!date || !input || strtok(NULL, "|") || line[line.size() - 1] == '|' || !is_date(date))
-			std::cout << "\033[0;91mError: bad input => " << line << "\033[0m\n";
-		else if (value < 0)
-			std::cout << "\033[0;91mError: not a positive number.\033[0m\n";
-		else if (value > 1000)
-			std::cout << "\033[0;91mError: too large number.\033[0m\n";
-		else
-		{
-			std::map<long long, double>::iterator i = this->btc_prices.begin();
-			while (i != this->btc_prices.end() && is_date(date) > (*i).first)
-				i++;
-			if ((i == this->btc_prices.begin() && is_date(date) < (*i).first))
-				std::cout << "\033[0;91mThere was no price for btc on " << trim_spaces_from_date(date) << "\033[0m\n";
-			else if (i != this->btc_prices.end() && is_date(date) == (*i).first)
-				std::cout << trim_spaces_from_date(date) << " => " << value << " = " << value * (*i).second << std::endl;
-			else
-				std::cout << trim_spaces_from_date(date) << " => " << value << " = " << value * (*(--i)).second << std::endl;
-		}
-	}
+		handle_input_line(line);
 }
 
 void BitcoinExchange::print_data(void)
