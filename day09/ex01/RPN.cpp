@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:35:16 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/21 17:11:55 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/23 16:55:46 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,45 +24,27 @@ void	ft_exit(std::string msg)
 
 RPN::RPN(char *input)
 {
-	char *token;
+	int i = 0;
 
-	token = strtok(input, " ");
-	while (token)
+	while (input && input[i])
 	{
-		if (token[1] != 0)
-			ft_exit("Error: bad token 🤡");
-		if (isdigit(token[0]))
-			this->expression.push_back(token[0] - '0');
-		else if (token[0] == '*' || token[0] == '/' || token[0] == '+' || token[0] == '-')
-			this->expression.push_back(token[0]);
-		else
-			ft_exit("Error: bad token 🤡");
-		token = strtok(NULL, " ");
-	}
-	if (this->expression.size() == 0)
-		ft_exit("Error: invalid input 🤡");
-	std::list<int>::iterator i = this->expression.begin();
-	unsigned int j = 0;
-	while (i != this->expression.end())
-	{
-		if (*i > 10)
+		if (isdigit(input[i]))
 		{
-			if (!j || j % 2)
-				ft_exit("Error: parse error 🤡");
+			this->numbers.push(input[i] - '0');
+			if (isdigit(input[i + 1]))
+				ft_exit("Error: number not less than 10 🤡");
 		}
-		else
-		{
-			if (j && j % 2 == 0)
-				ft_exit("Error: parse error 🤡");
-		}
+		else if (input[i] == '*' || input[i] == '/' || input[i] == '+' || input[i] == '-')
+			calculate(input[i]);
+		else if (!isspace(input[i]))
+			ft_exit("Error: bad token 🤡");
 		i++;
-		j++;
 	}
-	if (this->expression.size() > 1 && (*(--i)) < 10)
-		ft_exit("Error: parse error 🤡");
+	if (this->numbers.size() != 1)
+		ft_exit("Error: invalid input, not enough operations 🤡");
 }
 
-RPN::RPN(const RPN &src): expression(src.expression)
+RPN::RPN(const RPN &src): numbers(src.numbers)
 {
 }
 
@@ -73,44 +55,44 @@ RPN::~RPN()
 RPN	&RPN::operator=(RPN const &rhs)
 {
 	if ( this != &rhs )
-		this->expression = rhs.expression;
+		this->numbers = rhs.numbers;
 	return *this;
 }
 
-void	RPN::print_tokens()
+void	RPN::calculate(char operation)
 {
-	std::list<int>::iterator i = this->expression.begin();
-	while (i != this->expression.end())
+	long double operand1;
+	long double operand2;
+	
+	if (this->numbers.size() < 2)
+		ft_exit("Error: invalid input, not enough operands to perform an operation 🤡");
+	operand2 = this->numbers.top();
+	this->numbers.pop();
+	operand1 = this->numbers.top();
+	this->numbers.pop();
+	// std::cout << "calculating (" << operand1 << ") " << operation  << " ("<< operand2 << ")";
+	switch (operation)
 	{
-		std::cout << (*i) << std::endl;
-		i++;
+		case '+':
+			operand1 += operand2;
+			break;
+		case '-':
+			operand1 -= operand2;
+			break;
+		case '*':
+			operand1 *= operand2;
+			break;
+		case '/':
+			operand1 /= operand2;
+			break;
 	}
+	// std::cout << " = " << operand1 << "\n";
+	if (operand1 > INT_MAX || operand1 < INT_MIN)
+		ft_exit("Error: the result is not an integer 🤯 >> " + std::to_string(operand1));
+	this->numbers.push((int)operand1);
 }
 
-int	RPN::calculate()
+int	RPN::get_result()
 {
-	std::list<int>::iterator i = this->expression.begin();
-	int result = *i;
-
-	while (++i != this->expression.end())
-	{
-		int	operand = *i;
-		int operation = *(++i);
-		switch (operation)
-		{
-			case '+':
-				result += operand;
-				break;
-			case '-':
-				result -= operand;
-				break;
-			case '*':
-				result *= operand;
-				break;
-			case '/':
-				result /= operand;
-				break;
-		}
-	}
-	return (result);
+	return (this->numbers.top());
 }

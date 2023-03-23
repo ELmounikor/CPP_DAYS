@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:45:03 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/21 19:52:55 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:34:11 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,16 @@ BitcoinExchange::BitcoinExchange()
 				ft_exit("Invalid date in data.csv");
 			if (value < 0)
 				ft_exit("Invalid price of btc in data.csv");
-			this->bitcoin_price[is_date(date)] = value;
+			this->btc_prices[is_date(date)] = value;
 		}
-		if (this->bitcoin_price.size() == 0)
+		if (this->btc_prices.size() == 0)
 			ft_exit("Database data.csv is empty");
 	}
 	else
 		ft_exit("Database data.csv is missing");
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &old): bitcoin_price(old.bitcoin_price)
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &old): btc_prices(old.btc_prices)
 {
 }
 
@@ -132,7 +132,7 @@ BitcoinExchange::~BitcoinExchange()
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &old)
 {
 	if (this != &old)
-		this->bitcoin_price = old.bitcoin_price;
+		this->btc_prices = old.btc_prices;
 	return (*this);
 }
 
@@ -146,7 +146,7 @@ void BitcoinExchange::convert(std::string file_name)
 		std::cout << "\033[0;91mError: could not open file.\033[0m\n";
 		return ;
 	}
-	// std::getline(file, line);
+	std::getline(file, line);
 	while (std::getline(file, line))
 	{
 		char	*date = strtok((char *)line.c_str(), "|");
@@ -160,12 +160,12 @@ void BitcoinExchange::convert(std::string file_name)
 			std::cout << "\033[0;91mError: too large number.\033[0m\n";
 		else
 		{
-			std::map<long long, double>::iterator i = this->bitcoin_price.begin();
-			while (i != this->bitcoin_price.end() && is_date(date) > (*i).first)
+			std::map<long long, double>::iterator i = this->btc_prices.begin();
+			while (i != this->btc_prices.end() && is_date(date) > (*i).first)
 				i++;
-			if ((i == this->bitcoin_price.begin() && is_date(date) < (*i).first))
+			if ((i == this->btc_prices.begin() && is_date(date) < (*i).first))
 				std::cout << "\033[0;91mThere was no price for btc on " << trim_spaces_from_date(date) << "\033[0m\n";
-			else if (i != this->bitcoin_price.end() && is_date(date) == (*i).first)
+			else if (i != this->btc_prices.end() && is_date(date) == (*i).first)
 				std::cout << trim_spaces_from_date(date) << " => " << value << " = " << value * (*i).second << std::endl;
 			else
 				std::cout << trim_spaces_from_date(date) << " => " << value << " = " << value * (*(--i)).second << std::endl;
@@ -175,8 +175,8 @@ void BitcoinExchange::convert(std::string file_name)
 
 void BitcoinExchange::print_data(void)
 {
-	std::map<long long, double>::iterator i = this->bitcoin_price.begin();
-	while (i != this->bitcoin_price.end())
+	std::map<long long, double>::iterator i = this->btc_prices.begin();
+	while (i != this->btc_prices.end())
 	{
 		std::cout << "date : " << (*i).first << "\tvalue : " << (*i).second << std::endl;
 		i++;

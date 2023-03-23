@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:45:07 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/21 12:35:50 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:58:04 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 class BitcoinExchange
 {
 	private:
-		std::map<long long, double> bitcoin_price;
+		std::map<long long, double> btc_prices;
 	public:
 		BitcoinExchange();
 		~BitcoinExchange();

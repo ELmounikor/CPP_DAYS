@@ -6,7 +6,7 @@
 #    By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 17:58:52 by mel-kora          #+#    #+#              #
-#    Updated: 2023/03/21 11:37:37 by mel-kora         ###   ########.fr        #
+#    Updated: 2023/03/22 14:06:15 by mel-kora         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS		= main.cpp RPN.cpp
 OBJS		= ${SRCS:.cpp=.o}
 CC			= @c++
 RM			= @rm -rf
-CPPFLAGS	= -Wall -Werror -Wextra -std=c++98
+CPPFLAGS	= -Wall -Werror -Wextra -std=c++98 -g -fsanitize=address
 
 .cpp.o:		$(INCS)
 			$(CC) $(CPPFLAGS) -c $< -o $@
