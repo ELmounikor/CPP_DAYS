@@ -6,11 +6,12 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:35:16 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/24 16:42:07 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:00:52 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <iomanip>
 
 long	to_long(char *input)
 {
@@ -95,23 +96,23 @@ void	PmergeMe::print_container2()
 
 std::string PmergeMe::sort_container1()
 {
-	struct timeval	before, after;
-	double			usec_elapsed;
-	gettimeofday(&before, NULL);
+	struct timeval	start = {}, end = {};
+	double			usec_elapsed = 0;
+	gettimeofday(&start, NULL);
 	merge_insert_sort1(this->container1);
-	gettimeofday(&after, NULL);
-	usec_elapsed = after.tv_usec - before.tv_usec;
+	gettimeofday(&end, NULL);
+	usec_elapsed = end.tv_usec - start.tv_usec;
 	return(std::to_string(usec_elapsed) + " us");
 }
 
 std::string PmergeMe::sort_container2()
 {
-	struct timeval	before, after;
-	double			usec_elapsed;
-	gettimeofday(&before, NULL);
+	struct timeval	start = {}, end = {};
+	double			usec_elapsed = 0;
+	gettimeofday(&start, NULL);
 	merge_insert_sort2(this->container2);
-	gettimeofday(&after, NULL);
-	usec_elapsed = after.tv_usec - before.tv_usec;
+	gettimeofday(&end, NULL);
+	usec_elapsed = end.tv_usec - start.tv_usec;
 	return(std::to_string(usec_elapsed) + " us");
 }
 
