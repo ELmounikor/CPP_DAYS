@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:35:16 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/23 18:10:03 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:01:39 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,7 @@ RPN::RPN(char *input)
 	while (input && input[i])
 	{
 		if (isdigit(input[i]))
-		{
 			this->numbers.push(input[i] - '0');
-			if (isdigit(input[i + 1]))
-				ft_exit("Error: multidigit number (not less than 10) 🤡");
-		}
 		else if (input[i] == '*' || input[i] == '/' || input[i] == '+' || input[i] == '-')
 			calculate(input[i]);
 		else if (!isspace(input[i]))
