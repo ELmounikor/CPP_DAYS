@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:35:16 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/21 19:13:04 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:42:07 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ PmergeMe::PmergeMe(char **input)
 	{
 		value = to_long(input[i]);
 		if (value < 0)
-			ft_exit("Error : invalid input");
+			ft_exit("Error : invalid input 🧐");
 		if (value > INT_MAX)
-			ft_exit("Error : input out of range");
+			ft_exit("Error : input out of range 🤯");
 		this->container1.push_back(value);
 		this->container2.push_back(value);
 		i++;
@@ -68,7 +68,6 @@ PmergeMe::PmergeMe(const PmergeMe &src): container1(src.container1), container2(
 PmergeMe::~PmergeMe()
 {
 }
-
 PmergeMe	&PmergeMe::operator=(PmergeMe const &rhs)
 {
 	if ( this != &rhs )
@@ -79,24 +78,71 @@ PmergeMe	&PmergeMe::operator=(PmergeMe const &rhs)
 	return *this;
 }
 
-void PmergeMe::print_container1()
+unsigned int	PmergeMe::get_size()
 {
-	std::vector<unsigned int>::iterator i = this->container1.begin();
-	while (i != this->container1.end())
-	{
-		std::cout << (i != this->container1.begin() ? " " : "") << *i;
-		i++;
-	}
-	std::cout << std::endl;
+	return (this->container1.size());
 }
 
-void PmergeMe::print_container2()
+void	PmergeMe::print_container1()
 {
-	std::deque<unsigned int>::iterator i = this->container2.begin();
-	while (i != this->container2.end())
+	print_it(this->container1);
+}
+
+void	PmergeMe::print_container2()
+{
+	print_it(this->container2);
+}
+
+std::string PmergeMe::sort_container1()
+{
+	struct timeval	before, after;
+	double			usec_elapsed;
+	gettimeofday(&before, NULL);
+	merge_insert_sort1(this->container1);
+	gettimeofday(&after, NULL);
+	usec_elapsed = after.tv_usec - before.tv_usec;
+	return(std::to_string(usec_elapsed) + " us");
+}
+
+std::string PmergeMe::sort_container2()
+{
+	struct timeval	before, after;
+	double			usec_elapsed;
+	gettimeofday(&before, NULL);
+	merge_insert_sort2(this->container2);
+	gettimeofday(&after, NULL);
+	usec_elapsed = after.tv_usec - before.tv_usec;
+	return(std::to_string(usec_elapsed) + " us");
+}
+
+void PmergeMe::merge_insert_sort1(std::vector<unsigned int> &container)
+{
+	if (container.size() <= 2)
 	{
-		std::cout << (i != this->container2.begin() ? " " : "") << *i;
-		i++;
+		std::sort(container.begin(), container.end());
+		return;
 	}
-	std::cout << std::endl;
+	std::vector<unsigned int>::iterator mid = container.begin() + container.size() / 2;
+	std::vector<unsigned int> left(container.begin(), mid);
+	std::vector<unsigned int> right(mid, container.end());
+
+	merge_insert_sort1(left);
+	merge_insert_sort1(right);
+	std::merge(left.begin(), left.end(), right.begin(), right.end(), container.begin());
+}
+
+void PmergeMe::merge_insert_sort2(std::deque<unsigned int> &container)
+{
+	if (container.size() <= 2)
+	{
+		std::sort(container.begin(), container.end());
+		return;
+	}
+	std::deque<unsigned int>::iterator mid = container.begin() + container.size() / 2;
+	std::deque<unsigned int> left(container.begin(), mid);
+	std::deque<unsigned int> right(mid, container.end());
+
+	merge_insert_sort2(left);
+	merge_insert_sort2(right);
+	std::merge(left.begin(), left.end(), right.begin(), right.end(), container.begin());
 }
