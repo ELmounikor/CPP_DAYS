@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:35:19 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/24 16:40:03 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/25 18:01:31 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <vector>
 # include <deque>
 # include <algorithm>
-# include <sys/time.h>
 
 class PmergeMe
 {
@@ -33,8 +32,8 @@ class PmergeMe
 		unsigned int get_size();
 		void print_container1();
 		void print_container2();
-		std::string sort_container1();
-		std::string sort_container2();
+		long double sort_container1();
+		long double sort_container2();
 		void merge_insert_sort1(std::vector<unsigned int> &container);
 		void merge_insert_sort2(std::deque<unsigned int> &container);
 };
@@ -46,5 +45,37 @@ template <class T> void print_it(T container)
 		std::cout << " " << *i ; 
 	std::cout << std::endl;
 }
+
+template <class T>void insertion_sort(T &container)
+{
+	typename T::iterator	i = container.begin() + 1, j;
+	unsigned int			tmp;
+
+	while (i != container.end())
+	{
+		j = i;
+		while (j != container.begin() && *j < *(j - 1))
+		{
+			tmp = *j;
+			*j = *(j - 1);
+			*(j-- - 1) = tmp;
+		}
+		i++;
+	}
+}
+
+// template <class T>void insertion_sort(T &container, typename T::iterator i)
+// {
+// 	if (i == container.end())
+// 		return ;
+// 	typename T::iterator j = i;
+// 	while (j != container.begin() && *j < *(j - 1))
+// 	{
+// 		unsigned int tmp = *j;
+// 		*j = *(j - 1);
+// 		*(j-- - 1) = tmp;
+// 	}
+// 	insertion_sort(container, ++i);
+// }
 
 #endif

@@ -6,12 +6,11 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:35:16 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/24 18:00:52 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:47:39 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <iomanip>
 
 long	to_long(char *input)
 {
@@ -69,6 +68,7 @@ PmergeMe::PmergeMe(const PmergeMe &src): container1(src.container1), container2(
 PmergeMe::~PmergeMe()
 {
 }
+
 PmergeMe	&PmergeMe::operator=(PmergeMe const &rhs)
 {
 	if ( this != &rhs )
@@ -94,33 +94,35 @@ void	PmergeMe::print_container2()
 	print_it(this->container2);
 }
 
-std::string PmergeMe::sort_container1()
+long double PmergeMe::sort_container1()
 {
-	struct timeval	start = {}, end = {};
-	double			usec_elapsed = 0;
-	gettimeofday(&start, NULL);
+	std::clock_t	start, end;
+	long double		sec_elapsed;
+	
+	start = clock();
 	merge_insert_sort1(this->container1);
-	gettimeofday(&end, NULL);
-	usec_elapsed = end.tv_usec - start.tv_usec;
-	return(std::to_string(usec_elapsed) + " us");
+	end = clock();
+	sec_elapsed = ((long double)(end - start)) / CLOCKS_PER_SEC;
+	return (sec_elapsed);
 }
 
-std::string PmergeMe::sort_container2()
+long double PmergeMe::sort_container2()
 {
-	struct timeval	start = {}, end = {};
-	double			usec_elapsed = 0;
-	gettimeofday(&start, NULL);
+	std::clock_t	start, end;
+	long double		sec_elapsed;
+	
+	start = clock();
 	merge_insert_sort2(this->container2);
-	gettimeofday(&end, NULL);
-	usec_elapsed = end.tv_usec - start.tv_usec;
-	return(std::to_string(usec_elapsed) + " us");
+	end = clock();
+	sec_elapsed = ((long double)(end - start)) / CLOCKS_PER_SEC;
+	return (sec_elapsed);
 }
 
 void PmergeMe::merge_insert_sort1(std::vector<unsigned int> &container)
 {
-	if (container.size() <= 2)
+	if (container.size() <= 10)
 	{
-		std::sort(container.begin(), container.end());
+		insertion_sort(container);
 		return;
 	}
 	std::vector<unsigned int>::iterator mid = container.begin() + container.size() / 2;
@@ -134,9 +136,9 @@ void PmergeMe::merge_insert_sort1(std::vector<unsigned int> &container)
 
 void PmergeMe::merge_insert_sort2(std::deque<unsigned int> &container)
 {
-	if (container.size() <= 2)
+	if (container.size() <= 10)
 	{
-		std::sort(container.begin(), container.end());
+		insertion_sort(container);
 		return;
 	}
 	std::deque<unsigned int>::iterator mid = container.begin() + container.size() / 2;
