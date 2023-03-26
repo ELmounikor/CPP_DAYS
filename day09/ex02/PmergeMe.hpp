@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:35:19 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/25 18:01:31 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/26 20:41:32 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,33 @@ template <class T> void print_it(T container)
 	std::cout << std::endl;
 }
 
+template <class T>void merge_combine(T &container, T &c1, T &c2)
+{
+	typename T::iterator	j1 = c1.begin(), j2 = c2.begin();
+
+	container.clear();
+	while (j1 != c1.end() && j2 != c2.end())
+	{
+		if (j1 == c1.end())
+			container.push_back(*(j2++));
+		else if (j2 == c2.end())
+			container.push_back(*(j1++));
+		else 
+		{
+			if (*j1 < *j2)
+			{
+				container.push_back(*(j1++));
+				container.push_back(*(j2++));
+			}
+			else
+			{
+				container.push_back(*(j2++));
+				container.push_back(*(j1++));
+			}
+		}
+	}
+}
+
 template <class T>void insertion_sort(T &container)
 {
 	typename T::iterator	i = container.begin() + 1, j;
@@ -64,7 +91,25 @@ template <class T>void insertion_sort(T &container)
 	}
 }
 
-// template <class T>void insertion_sort(T &container, typename T::iterator i)
+template <class T>void merge_insert_sort(T &container)
+{
+	if (container.size() <= 10)
+	{
+		insertion_sort(container);
+		return;
+	}
+	typename T::iterator mid = container.begin() + container.size() / 2;
+	T left(container.begin(), mid);
+	T right(mid, container.end());
+
+	merge_insert_sort(left);
+	merge_insert_sort(right);
+	merge_combine(container, right, left);
+	// std::merge(left.begin(), left.end(), right.begin(), right.end(), container.begin());
+}
+
+// //recursive insertion_sort
+// template <class T>void insertion_sort(T &container, typename T::iterator &i)
 // {
 // 	if (i == container.end())
 // 		return ;

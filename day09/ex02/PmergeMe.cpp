@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:35:16 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/25 17:47:39 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/26 20:40:08 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ long double PmergeMe::sort_container1()
 	long double		sec_elapsed;
 	
 	start = clock();
-	merge_insert_sort1(this->container1);
+	merge_insert_sort(this->container1);
 	end = clock();
 	sec_elapsed = ((long double)(end - start)) / CLOCKS_PER_SEC;
 	return (sec_elapsed);
@@ -112,40 +112,40 @@ long double PmergeMe::sort_container2()
 	long double		sec_elapsed;
 	
 	start = clock();
-	merge_insert_sort2(this->container2);
+	merge_insert_sort(this->container2);
 	end = clock();
 	sec_elapsed = ((long double)(end - start)) / CLOCKS_PER_SEC;
 	return (sec_elapsed);
 }
 
-void PmergeMe::merge_insert_sort1(std::vector<unsigned int> &container)
-{
-	if (container.size() <= 10)
-	{
-		insertion_sort(container);
-		return;
-	}
-	std::vector<unsigned int>::iterator mid = container.begin() + container.size() / 2;
-	std::vector<unsigned int> left(container.begin(), mid);
-	std::vector<unsigned int> right(mid, container.end());
+// void PmergeMe::merge_insert_sort1(std::vector<unsigned int> &container)
+// {
+// 	if (container.size() <= 10)
+// 	{
+// 		insertion_sort(container);
+// 		return;
+// 	}
+// 	std::vector<unsigned int>::iterator mid = container.begin() + container.size() / 2;
+// 	std::vector<unsigned int> left(container.begin(), mid);
+// 	std::vector<unsigned int> right(mid, container.end());
 
-	merge_insert_sort1(left);
-	merge_insert_sort1(right);
-	std::merge(left.begin(), left.end(), right.begin(), right.end(), container.begin());
-}
+// 	merge_insert_sort1(left);
+// 	merge_insert_sort1(right);
+// 	merge_combine(container, right, left);
+// }
 
-void PmergeMe::merge_insert_sort2(std::deque<unsigned int> &container)
-{
-	if (container.size() <= 10)
-	{
-		insertion_sort(container);
-		return;
-	}
-	std::deque<unsigned int>::iterator mid = container.begin() + container.size() / 2;
-	std::deque<unsigned int> left(container.begin(), mid);
-	std::deque<unsigned int> right(mid, container.end());
+// void PmergeMe::merge_insert_sort2(std::deque<unsigned int> &container)
+// {
+// 	if (container.size() <= 10)
+// 	{
+// 		insertion_sort(container);
+// 		return;
+// 	}
+// 	std::deque<unsigned int>::iterator mid = container.begin() + container.size() / 2;
+// 	std::deque<unsigned int> left(container.begin(), mid);
+// 	std::deque<unsigned int> right(mid, container.end());
 
-	merge_insert_sort2(left);
-	merge_insert_sort2(right);
-	std::merge(left.begin(), left.end(), right.begin(), right.end(), container.begin());
-}
+// 	merge_insert_sort2(left);
+// 	merge_insert_sort2(right);
+// 	merge_combine(container, right, left);
+// }
