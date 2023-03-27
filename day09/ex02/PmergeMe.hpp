@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:35:19 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/26 20:41:32 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:23:49 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ class PmergeMe
 		void print_container2();
 		long double sort_container1();
 		long double sort_container2();
-		void merge_insert_sort1(std::vector<unsigned int> &container);
-		void merge_insert_sort2(std::deque<unsigned int> &container);
 };
 
 template <class T> void print_it(T container)
@@ -60,15 +58,9 @@ template <class T>void merge_combine(T &container, T &c1, T &c2)
 		else 
 		{
 			if (*j1 < *j2)
-			{
 				container.push_back(*(j1++));
-				container.push_back(*(j2++));
-			}
 			else
-			{
 				container.push_back(*(j2++));
-				container.push_back(*(j1++));
-			}
 		}
 	}
 }
