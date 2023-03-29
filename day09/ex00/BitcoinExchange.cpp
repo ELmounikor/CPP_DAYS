@@ -6,7 +6,7 @@
 /*   By: mel-kora <mel-kora@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:45:03 by mel-kora          #+#    #+#             */
-/*   Updated: 2023/03/26 20:03:41 by mel-kora         ###   ########.fr       */
+/*   Updated: 2023/03/29 16:57:46 by mel-kora         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,28 @@ double	to_double(char *input)
 	return (std::strtod(input, NULL));
 }
 
+void *mystrpftime(const char *input, struct tm *tm)
+{
+	int i = -1;
+	
+	(*tm).tm_year = 0;
+	(*tm).tm_mon = 0;
+	(*tm).tm_mday = 0;
+	while (isdigit(input[++i]))
+		(*tm).tm_year = (*tm).tm_year * 10 + (input[i] - '0');
+	if (input[i] != '-' || i != 4)
+		return (NULL);
+	while (isdigit(input[++i]))
+		(*tm).tm_mon = (*tm).tm_mon * 10 + (input[i] - '0');
+	if (input[i] != '-' || i != 7)
+		return (NULL);
+	while (isdigit(input[++i]))
+		(*tm).tm_mday = (*tm).tm_mday * 10 + (input[i] - '0');
+	if (input[i]|| (*tm).tm_mon == 0 || (*tm).tm_mday == 0)
+		return (NULL);
+	return (tm);
+}
+
 long long is_date(std::string input)
 {
 	unsigned long	i = 0;
@@ -68,10 +90,10 @@ long long is_date(std::string input)
 	if (i < input.size())
 		return (0);
 	input = input.substr(j, 10);
-	if (strptime(input.c_str(), "%F", &tm))
+	if (mystrpftime(input.c_str(), &tm))
 	{
 		if (tm.tm_mday != 0 && mktime(&tm) != -1)
-			return (tm.tm_mday + (tm.tm_mon + 1) * 100 + (tm.tm_year + 1900) * 10000);
+			return (tm.tm_mday + (tm.tm_mon) * 100 + (tm.tm_year) * 10000);
 		return (0);
 	}
 	return (0);
